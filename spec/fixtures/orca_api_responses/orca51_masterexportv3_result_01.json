@@ -1,0 +1,11 @@
+{
+  "Request_Number": "02",
+  "Response_Number": "02",
+  "Karte_Uid": "210983b4-2d9f-4daf-af0e-b8b76b1703e9",
+  "Orca_Uid": "2528b7da-bce4-44f1-a474-8101772c27b0",
+  "Information_Date": "2023-06-15",
+  "Information_Time": "19:21:08",
+  "Api_Result": "000",
+  "Api_Result_Message": "処理確認終了",
+  "Output_Count": "0000027962"
+}
