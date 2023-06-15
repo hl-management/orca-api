@@ -221,6 +221,9 @@ module OrcaApi #:nodoc:
     # @!method new_hospital_service
     # @return [HospitalService] HospitalServiceインスタンス
 
+    # @!method new_master_export_service
+    # @return [MasterExportService] MasterExportServiceインスタンス
+
     # @!endgroup
 
     service_class_names = %w(
@@ -249,6 +252,7 @@ module OrcaApi #:nodoc:
       UserService
       PrescriptionPrintService
       HospitalService
+      MasterExportService
     )
     service_class_names.each do |name|
       s = underscore(name)
