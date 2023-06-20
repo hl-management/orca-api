@@ -1,0 +1,13 @@
+{
+  "Request_Number": "01",
+  "Response_Number": "02",
+  "Karte_Uid": "cab05420-f855-4e25-bfe1-5f088456c1cd",
+  "Orca_Uid": "d6ee2adf-69cf-4c1f-b404-ecfd41db7866",
+  "Information_Date": "2023-06-15",
+  "Information_Time": "19:39:06",
+  "Api_Result": "000",
+  "Api_Result_Message": "処理実施終了",
+  "Data_Id_Information": {
+    "Data_Id": "blob:g5dTtjfdPHcZFuCesPT3GdZZZZZZZZZ"
+  }
+}
