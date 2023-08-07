@@ -94,7 +94,7 @@ module OrcaApi
     end
 
     def message
-      "#{api_result_message}(#{api_result})"
+      "#{api_result}:#{api_result_message}"
     end
 
     def method_missing(symbol, *args)

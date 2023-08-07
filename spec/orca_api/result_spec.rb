@@ -55,7 +55,7 @@ RSpec.describe OrcaApi::Result do
     its(:raw) { is_expected.to eq(raw) }
     its(:body) { is_expected.to eq(response.first[1]) }
     its("ok?") { is_expected.to be true }
-    its(:message) { is_expected.to eq("検索処理終了(000)") }
+    its(:message) { is_expected.to eq("000:検索処理終了") }
 
     %i(api_result api_result_message request_number response_number karte_uid orca_uid).each do |sym|
       it { is_expected.to be_respond_to(sym) }
@@ -80,7 +80,7 @@ RSpec.describe OrcaApi::Result do
     its(:karte_uid) { is_expected.to eq("karte_uid") }
     its(:orca_uid) { is_expected.to eq("a2082aa7-2915-4e9b-91ee-e0c653767824") }
     its("ok?") { is_expected.to be false }
-    its(:message) { is_expected.to eq("選択項目があります。選択結果を返却してください。(S20)") }
+    its(:message) { is_expected.to eq("S20:選択項目があります。選択結果を返却してください。") }
   end
 
   context "HAORIではない正常レスポンス" do
@@ -90,7 +90,7 @@ RSpec.describe OrcaApi::Result do
     its(:api_result) { is_expected.to eq("00") }
     its(:api_result_message) { is_expected.to eq("処理終了") }
     its("ok?") { is_expected.to be true }
-    its(:message) { is_expected.to eq("処理終了(00)") }
+    its(:message) { is_expected.to eq("00:処理終了") }
 
     %w(request_number response_number karte_uid orca_uid).each do |name|
       describe name do
@@ -119,7 +119,7 @@ RSpec.describe OrcaApi::Result do
       its(:body) { is_expected.to eq(response.first[1]) }
       its("ok?") { is_expected.to be false }
       its("locked?") { is_expected.to be true }
-      its(:message) { is_expected.to eq("他端末使用中(E90)") }
+      its(:message) { is_expected.to eq("E90:他端末使用中") }
     end
 
     context "E9999" do
@@ -143,7 +143,7 @@ RSpec.describe OrcaApi::Result do
       its(:body) { is_expected.to eq(response.first[1]) }
       its("ok?") { is_expected.to be false }
       its("locked?") { is_expected.to be true }
-      its(:message) { is_expected.to eq("他端末で使用中です。(E9999)") }
+      its(:message) { is_expected.to eq("E9999:他端末で使用中です。") }
     end
   end
 end
