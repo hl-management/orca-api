@@ -14,7 +14,6 @@ module OrcaApi
             "Request_Number" => '01',
           }
         }
-      end
       Result.new(orca_api.call(api_path, body: body))
     end
   end
