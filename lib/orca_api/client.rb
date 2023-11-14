@@ -221,8 +221,8 @@ module OrcaApi #:nodoc:
     # @!method new_hospital_service
     # @return [HospitalService] HospitalServiceインスタンス
     #
-    # @!method new_information_service
-    # @return [InformationService] InformationServiceインスタンス
+    # @!method new_income_information_service
+    # @return [IncomeInformationService] IncomeInformationServiceインスタンス
     #
     # @!method new_statement_service
     # @return [StatementService] StatementServiceインスタンス
@@ -259,7 +259,7 @@ module OrcaApi #:nodoc:
       PrescriptionPrintService
       HospitalService
       MasterExportService
-      InformationService
+      IncomeInformationService
       StatementService
     )
     service_class_names.each do |name|
