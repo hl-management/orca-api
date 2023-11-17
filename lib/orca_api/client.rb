@@ -220,6 +220,12 @@ module OrcaApi #:nodoc:
     #
     # @!method new_hospital_service
     # @return [HospitalService] HospitalServiceインスタンス
+    #
+    # @!method new_income_information_service
+    # @return [IncomeInformationService] IncomeInformationServiceインスタンス
+    #
+    # @!method new_statement_service
+    # @return [StatementService] StatementServiceインスタンス
 
     # @!method new_master_export_service
     # @return [MasterExportService] MasterExportServiceインスタンス
@@ -253,6 +259,8 @@ module OrcaApi #:nodoc:
       PrescriptionPrintService
       HospitalService
       MasterExportService
+      IncomeInformationService
+      StatementService
     )
     service_class_names.each do |name|
       s = underscore(name)
