@@ -139,9 +139,9 @@ module OrcaApi #:nodoc:
     # @return [IO,String]
     #   output_ioが指定された場合、output_ioを返す。
     #   そうでない場合、HTTPレスポンスのbodyをそのまま文字列として返す。
-    def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil)
+    def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil, type: nil)
       path = "#{@path_prefix}#{path}"
-      do_call make_request(http_method, path, params, body, format), output_io
+      do_call make_request(http_method, path, params, body, format, type), output_io
     end
 
     # @!group 高レベルインターフェース
@@ -229,6 +229,9 @@ module OrcaApi #:nodoc:
 
     # @!method new_master_export_service
     # @return [MasterExportService] MasterExportServiceインスタンス
+    
+    # @!method new_orca_qkan_service
+    # @return [OrcaQkanService] OrcaQkanServiceインスタンス
 
     # @!endgroup
 
@@ -261,6 +264,7 @@ module OrcaApi #:nodoc:
       MasterExportService
       IncomeInformationService
       StatementService
+      OrcaQkanService
     )
     service_class_names.each do |name|
       s = underscore(name)
@@ -353,7 +357,7 @@ module OrcaApi #:nodoc:
       http
     end
 
-    def make_request(http_method, path, params, body, format)
+    def make_request(http_method, path, params, body, format, type)
       case http_method
       when :get
         request_class = Net::HTTP::Get
@@ -375,7 +379,11 @@ module OrcaApi #:nodoc:
       req.basic_auth(@user, @password)
 
       if body
-        req.body = body.to_json
+        if type.nil?
+          req.body = body.to_json
+        else
+          req.body = body
+        end
       end
 
       req
