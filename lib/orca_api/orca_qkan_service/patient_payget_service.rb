@@ -4,7 +4,7 @@ module OrcaApi
       def get(provider_id, date, type)
           orca_api.call(
             "/claim01/patientpayget",
-            type: 'xml',
+            type: type,
             body: <<-XML
               <data>
                 <patientpaygetreq type="record">
