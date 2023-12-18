@@ -229,6 +229,9 @@ module OrcaApi #:nodoc:
 
     # @!method new_master_export_service
     # @return [MasterExportService] MasterExportServiceインスタンス
+    
+    # @!method new_orca_qkan_service
+    # @return [OrcaQkanService] OrcaQkanServiceインスタンス
 
     # @!endgroup
 
@@ -261,6 +264,7 @@ module OrcaApi #:nodoc:
       MasterExportService
       IncomeInformationService
       StatementService
+      OrcaQkanService
     )
     service_class_names.each do |name|
       s = underscore(name)
@@ -375,7 +379,7 @@ module OrcaApi #:nodoc:
       req.basic_auth(@user, @password)
 
       if body
-        req.body = body.to_json
+        req.body = format == 'json' ? body.to_json : body
       end
 
       req

@@ -110,17 +110,31 @@ module OrcaApi
 
     # @param list_result [ListResult]
     # @return [CreateResult] 処理実施のレスポンスクラス
-    def create(list_result)
-      statistics_processing_list_information = extract_statistics_processing_list_information list_result
+    def create(list_result, month, patient_id, date = nil)
       CreateResult.new(
         orca_api.call(
           "/orca51/statisticsformv3",
           body: {
             statistics_formv3req: {
               "Request_Number" => "01",
-              "Karte_Uid" => list_result.karte_uid,
-              "Statistics_Mode" => list_result.statistics_mode,
-              "Statistics_Processing_List_Information" => statistics_processing_list_information
+              "Karte_Uid" => list_result["Karte_Uid"],
+              "Statistics_Mode" => list_result["Statistics_Mode"],
+              "Statistics_Processing_List_Information" => [{
+                "Statistics_Program_Name" => "ORCBG013",
+                "Statistics_Parameter_Information" => [{
+                  "Statistics_Parm_No" => "01",
+                  "Statistics_Parm_Class" => "YM",
+                  "Statistics_Parm_Value" => month,
+                },{
+                  "Statistics_Parm_No" => "03",
+                  "Statistics_Parm_Class" => "PTNUM",
+                  "Statistics_Parm_Value" => patient_id,
+                },{
+                  "Statistics_Parm_No" => "04",
+                  "Statistics_Parm_Class" => "YMD",
+                  "Statistics_Parm_Value" => date,
+                }]
+              }]
             }
           }
         )
