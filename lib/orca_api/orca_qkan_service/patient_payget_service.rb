@@ -4,6 +4,7 @@ module OrcaApi
       def get(provider_id, date, result_type = 'pdf')
           orca_api.call(
             "/claim01/patientpayget",
+            format: 'xml',
             body: <<-XML
               <data>
                 <patientpaygetreq type="record">
