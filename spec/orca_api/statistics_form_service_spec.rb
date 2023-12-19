@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::StatisticsFormService, orca_api_mock: true do
+RSpec.describe OrcaApi::StatisticsFormService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#list" do
@@ -261,7 +261,7 @@ RSpec.describe OrcaApi::StatisticsFormService, orca_api_mock: true do
           }.to_json
         )
 
-        expect(created_result.doing?).to eq true
+        expect(created_result.doing?).to be true
       end
 
       it "それ以外の場合はfalseを返すこと" do
@@ -273,7 +273,7 @@ RSpec.describe OrcaApi::StatisticsFormService, orca_api_mock: true do
           }.to_json
         )
 
-        expect(created_result.doing?).to eq false
+        expect(created_result.doing?).to be false
       end
     end
   end

@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::RehabilitationCommentService, orca_api_mock: true do
+RSpec.describe OrcaApi::RehabilitationCommentService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#list" do
@@ -60,24 +60,24 @@ RSpec.describe OrcaApi::RehabilitationCommentService, orca_api_mock: true do
   describe "#update" do
     it "算定履歴、リハビリコメントを登録できること" do
       args = {
-        "Perform_Information": {
-          "Perform_Mode": "New",
-          "Medication_Code": "099800111",
-          "Perform_Date": "2018-01",
-          "Perform_Day_Info": [
+        Perform_Information: {
+          Perform_Mode: "New",
+          Medication_Code: "099800111",
+          Perform_Date: "2018-01",
+          Perform_Day_Info: [
             {
-              "Perform_Day": "01"
+              Perform_Day: "01"
             }
           ]
         },
-        "Comment_Information": {
-          "Comment_Mode": "Modify",
-          "Comment_Day_Info": [
+        Comment_Information: {
+          Comment_Mode: "Modify",
+          Comment_Day_Info: [
             {
-              "Comment_Day": "01",
-              "Comment_Info": [
+              Comment_Day: "01",
+              Comment_Info: [
                 {
-                  "Comment": "リハビリコメント"
+                  Comment: "リハビリコメント"
                 }
               ]
             }
@@ -120,35 +120,35 @@ RSpec.describe OrcaApi::RehabilitationCommentService, orca_api_mock: true do
 
     it "算定履歴、リハビリコメントを更新できること" do
       args = {
-        "Perform_Information": {
-          "Perform_Mode": "Modify",
-          "Medication_Code": "099800111",
-          "Perform_Date": "2018-01",
-          "Perform_Day_Info": [
+        Perform_Information: {
+          Perform_Mode: "Modify",
+          Medication_Code: "099800111",
+          Perform_Date: "2018-01",
+          Perform_Day_Info: [
             {
-              "Perform_Day": "05"
+              Perform_Day: "05"
             },
             {
-              "Perform_Day": "07"
+              Perform_Day: "07"
             }
           ]
         },
-        "Comment_Information": {
-          "Comment_Mode": "Modify",
-          "Comment_Day_Info": [
+        Comment_Information: {
+          Comment_Mode: "Modify",
+          Comment_Day_Info: [
             {
-              "Comment_Day": "05",
-              "Comment_Info": [
+              Comment_Day: "05",
+              Comment_Info: [
                 {
-                  "Comment": "りはびりこめんと５"
+                  Comment: "りはびりこめんと５"
                 }
               ]
             },
             {
-              "Comment_Day": "07",
-              "Comment_Info": [
+              Comment_Day: "07",
+              Comment_Info: [
                 {
-                  "Comment": "りはびりこめんと７"
+                  Comment: "りはびりこめんと７"
                 }
               ]
             }
@@ -203,27 +203,27 @@ RSpec.describe OrcaApi::RehabilitationCommentService, orca_api_mock: true do
 
     it "リハビリコメントだけを更新できること" do
       args = {
-        "Perform_Information": {
-          "Perform_Mode": "",
-          "Medication_Code": "099800111",
-          "Perform_Date": "2018-01"
+        Perform_Information: {
+          Perform_Mode: "",
+          Medication_Code: "099800111",
+          Perform_Date: "2018-01"
         },
-        "Comment_Information": {
-          "Comment_Mode": "Modify",
-          "Comment_Day_Info": [
+        Comment_Information: {
+          Comment_Mode: "Modify",
+          Comment_Day_Info: [
             {
-              "Comment_Day": "05",
-              "Comment_Info": [
+              Comment_Day: "05",
+              Comment_Info: [
                 {
-                  "Comment": "修正したりはびりこめんと５"
+                  Comment: "修正したりはびりこめんと５"
                 }
               ]
             },
             {
-              "Comment_Day": "07",
-              "Comment_Info": [
+              Comment_Day: "07",
+              Comment_Info: [
                 {
-                  "Comment": "修正したりはびりこめんと７"
+                  Comment: "修正したりはびりこめんと７"
                 }
               ]
             }
@@ -278,16 +278,16 @@ RSpec.describe OrcaApi::RehabilitationCommentService, orca_api_mock: true do
 
     it "算定履歴、リハビリコメントを削除できること" do
       args = {
-        "Perform_Information": {
-          "Perform_Mode": "Delete",
-          "Medication_Code": "099800111",
-          "Perform_Date": "2018-01",
-          "Perform_Day_Info": [
+        Perform_Information: {
+          Perform_Mode: "Delete",
+          Medication_Code: "099800111",
+          Perform_Date: "2018-01",
+          Perform_Day_Info: [
             {
-              "Perform_Day": "05"
+              Perform_Day: "05"
             },
             {
-              "Perform_Day": "07"
+              Perform_Day: "07"
             }
           ]
         }
@@ -363,24 +363,24 @@ RSpec.describe OrcaApi::RehabilitationCommentService, orca_api_mock: true do
 
       it "リハビリ等開始日のコードではない場合、ロック解除を行うこと" do
         args = {
-          "Perform_Information": {
-            "Perform_Mode": "New",
-            "Medication_Code": "123456789",
-            "Perform_Date": "2018-01",
-            "Perform_Day_Info": [
+          Perform_Information: {
+            Perform_Mode: "New",
+            Medication_Code: "123456789",
+            Perform_Date: "2018-01",
+            Perform_Day_Info: [
               {
-                "Perform_Day": "01"
+                Perform_Day: "01"
               }
             ]
           },
-          "Comment_Information": {
-            "Comment_Mode": "Modify",
-            "Comment_Day_Info": [
+          Comment_Information: {
+            Comment_Mode: "Modify",
+            Comment_Day_Info: [
               {
-                "Comment_Day": "01",
-                "Comment_Info": [
+                Comment_Day: "01",
+                Comment_Info: [
                   {
-                    "Comment": "リハビリコメント"
+                    Comment: "リハビリコメント"
                   }
                 ]
               }

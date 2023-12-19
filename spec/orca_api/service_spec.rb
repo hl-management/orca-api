@@ -19,13 +19,13 @@ RSpec.describe OrcaApi::Service do
     it "セッションの再利用がされないこと" do
       expect {
         service_class.reuse_session :call_02
-      }.to_not change { service.call_01 }
+      }.not_to change(service, :call_01)
     end
 
     it "セッションの再利用がされること" do
       expect {
         service_class.reuse_session :call_02
-      }.to change { service.call_02 }.to(true)
+      }.to change(service, :call_02).to(true)
     end
 
     it "メソッド名を複数指定できること" do

@@ -125,11 +125,11 @@ module OrcaApi
                   "Statistics_Parm_No" => "01",
                   "Statistics_Parm_Class" => "YM",
                   "Statistics_Parm_Value" => month,
-                },{
+                }, {
                   "Statistics_Parm_No" => "03",
                   "Statistics_Parm_Class" => "PTNUM",
                   "Statistics_Parm_Value" => patient_id,
-                },{
+                }, {
                   "Statistics_Parm_No" => "04",
                   "Statistics_Parm_Class" => "YMD",
                   "Statistics_Parm_Value" => date,

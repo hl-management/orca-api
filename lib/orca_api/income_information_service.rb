@@ -1,10 +1,10 @@
 # frozen_string_literal: true
+
 require_relative 'service'
 
 module OrcaApi
+  # https://www.orca.med.or.jp/receipt/tec/api/shunou.html
   class IncomeInformationService < Service
-    # https://www.orca.med.or.jp/receipt/tec/api/shunou.html
-
     def list(patient_id = "", date = "", month = "", year = "")
       api_path = "/api01rv2/incomeinfv2"
       req_name = "private_objects"

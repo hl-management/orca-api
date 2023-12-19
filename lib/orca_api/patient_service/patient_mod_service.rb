@@ -4,9 +4,8 @@ require_relative "../service"
 
 module OrcaApi
   class PatientService < Service
+    # https://www.orca.med.or.jp/receipt/tec/api/patientmod.html
     class PatientModService < Service
-      # https://www.orca.med.or.jp/receipt/tec/api/patientmod.html
-
       # 患者情報の登録
       def create(patient)
         Result.new(call(patient, "01"))
@@ -18,11 +17,11 @@ module OrcaApi
 
       private
 
-        def call(patient, klass)
-          req = { "patientmodreq" => patient }
+      def call(patient, klass)
+        req = { "patientmodreq" => patient }
 
-          orca_api.call("/orca12/patientmodv2?class=#{klass}", body: req)
-        end
+        orca_api.call("/orca12/patientmodv2?class=#{klass}", body: req)
+      end
     end
   end
 end

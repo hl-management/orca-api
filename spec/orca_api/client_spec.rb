@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe OrcaApi::Client do
   let(:uri) { "http://ormaster:ormaster_password@example.com:18000" }
   let(:options) { {} }
-  let(:orca_api) { OrcaApi::Client.new(uri, options) }
+  let(:orca_api) { described_class.new(uri, options) }
 
   describe ".new" do
     subject { orca_api }
@@ -173,7 +173,7 @@ RSpec.describe OrcaApi::Client do
     context "karte_uidを未設定" do
       it "SecureRandom.uuidを使ってkarte_uidを自動生成すること" do
         expect(SecureRandom).to receive(:uuid).and_return("generated uuid").once
-        is_expected.to eq("generated uuid")
+        expect(subject).to eq("generated uuid")
       end
     end
   end
@@ -197,12 +197,12 @@ RSpec.describe OrcaApi::Client do
     }
 
     shared_examples "日レセAPIを呼び出せること" do
-      let(:result) {
-        load_orca_api_response(path[1..-1].gsub("/", "_") + ".json")
-      }
-
       subject {
         orca_api.call(path, params: params, body: body, http_method: http_method)
+      }
+
+      let(:result) {
+        load_orca_api_response("#{path[1..].gsub("/", "_")}.json")
       }
 
       before do
@@ -365,23 +365,23 @@ RSpec.describe OrcaApi::Client do
 
   describe "#reusing_session?" do
     it "reuse_sessionブロック外ではfalseになっていること" do
-      expect(orca_api.reusing_session?).to be_falsey
+      expect(orca_api).not_to be_reusing_session
     end
 
     it "reuse_sessionブロックではtrueになっていること" do
       expect {
         orca_api.reuse_session do
-          expect(orca_api.reusing_session?).to be_truthy
+          expect(orca_api).to be_reusing_session
         end
-      }.to_not change { orca_api.reusing_session? }
+      }.not_to change(orca_api, :reusing_session?)
     end
 
     it "ネストしたreuse_sessionブロックでもtrueになっていること" do
       orca_api.reuse_session do
         orca_api.reuse_session do
-          expect(orca_api.reusing_session?).to be_truthy
+          expect(orca_api).to be_reusing_session
         end
-        expect(orca_api.reusing_session?).to be_truthy
+        expect(orca_api).to be_reusing_session
       end
     end
   end

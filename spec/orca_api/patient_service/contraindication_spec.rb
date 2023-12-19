@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::Contraindication, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::Contraindication, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:orca_uid) { SecureRandom.uuid }
   let(:patient_id) { "00064" }
@@ -56,7 +56,7 @@ RSpec.describe OrcaApi::PatientService::Contraindication, orca_api_mock: true do
           end
         end
         result = service.get(patient_id)
-        expect(result).to_not be_ok
+        expect(result).not_to be_ok
       end
     end
   end
@@ -140,7 +140,7 @@ RSpec.describe OrcaApi::PatientService::Contraindication, orca_api_mock: true do
           end
         end
         result = service.update(patient_id, params)
-        expect(result).to_not be_ok
+        expect(result).not_to be_ok
       end
 
       it "Request_Number=02が失敗したらロック解除APIを呼び出す" do
@@ -159,7 +159,7 @@ RSpec.describe OrcaApi::PatientService::Contraindication, orca_api_mock: true do
           end
         end
         result = service.update(patient_id, params)
-        expect(result).to_not be_ok
+        expect(result).not_to be_ok
       end
     end
   end

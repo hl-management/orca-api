@@ -9,7 +9,7 @@ require_relative "binary_result"
 
 require_relative "error"
 
-module OrcaApi #:nodoc:
+module OrcaApi # :nodoc:
   # 日医レセAPIを呼び出すため低レベルインタフェースを提供するクラス
   #
   # リクエスト毎に日レセAPIの接続先を切り替えられるように、接続・認証情報をこのクラスのオブジェクトに保持する。
@@ -28,6 +28,7 @@ module OrcaApi #:nodoc:
   # 接続・認証に関するサンプルプログラムは `/example/common.rb` を参照。
   # また、低レベルインタフェースに関するサンプルプログラムは `/example/orca_api/call.rb` を参照。
   class Client
+    # rubocop:disable Style/AccessorGrouping
     attr_accessor :host # ホスト名
     attr_accessor :port # ポート番号
     attr_accessor :user # ユーザー名
@@ -41,6 +42,7 @@ module OrcaApi #:nodoc:
     attr_writer :karte_uid # カルテUID
     attr_accessor :debug_output # デバッグに使う `IO` オブジェクト
     attr_reader :timeout
+    # rubocop:enable Style/AccessorGrouping
 
     def self.underscore(name)
       name.
@@ -229,7 +231,7 @@ module OrcaApi #:nodoc:
 
     # @!method new_master_export_service
     # @return [MasterExportService] MasterExportServiceインスタンス
-    
+
     # @!method new_orca_qkan_service
     # @return [OrcaQkanService] OrcaQkanServiceインスタンス
 
@@ -272,7 +274,7 @@ module OrcaApi #:nodoc:
       require_relative s
 
       service_class = ::OrcaApi.const_get(name)
-      define_method("new_#{s}") do
+      define_method(:"new_#{s}") do
         service_class.new(self)
       end
     end
@@ -351,7 +353,7 @@ module OrcaApi #:nodoc:
       end
 
       @timeout.each do |key, value|
-        http.__send__ "#{key}_timeout=", value
+        http.__send__ :"#{key}_timeout=", value
       end
 
       http

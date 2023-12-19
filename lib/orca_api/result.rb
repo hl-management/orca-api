@@ -64,9 +64,9 @@ module OrcaApi
 
     def initialize(raw)
       @raw = raw
-      @attr_names = body.keys.map { |key|
+      @attr_names = body.keys.to_h { |key|
         [Client.underscore(key).to_sym, key]
-      }.to_h
+      }
     end
 
     def body
@@ -86,7 +86,7 @@ module OrcaApi
     end
 
     def warning?
-      /\AW/.match? api_result
+      api_result.start_with?('W')
     end
 
     def locked?

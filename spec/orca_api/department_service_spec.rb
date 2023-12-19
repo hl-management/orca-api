@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::DepartmentService, orca_api_mock: true do
+RSpec.describe OrcaApi::DepartmentService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
@@ -24,17 +24,17 @@ RSpec.describe OrcaApi::DepartmentService, orca_api_mock: true do
     end
 
     context "引数を省略する" do
-      let(:base_date) { "" }
-
       subject { service.list }
+
+      let(:base_date) { "" }
 
       include_examples "結果が正しいこと"
     end
 
     context "base_date引数を指定する" do
-      let(:base_date) { "2017-07-25" }
-
       subject { service.list(base_date) }
+
+      let(:base_date) { "2017-07-25" }
 
       include_examples "結果が正しいこと"
     end

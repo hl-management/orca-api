@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::PiEtcMoney, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::PiEtcMoney, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#get" do
@@ -226,12 +226,12 @@ RSpec.describe OrcaApi::PatientService::PiEtcMoney, orca_api_mock: true do
     context "正常系" do
       it "他一部負担額を更新できること" do
         args = {
-          "Pi_Etc_Money_Mode": "Modify",
-          "Pi_Etc_Money_Info": [
+          Pi_Etc_Money_Mode: "Modify",
+          Pi_Etc_Money_Info: [
             {
-              "Pi_Etc_Money_Date": "2012-05-15",
-              "Pi_Etc_Money_InOut": "2",
-              "Pi_Etc_Money_Money": "0007500"
+              Pi_Etc_Money_Date: "2012-05-15",
+              Pi_Etc_Money_InOut: "2",
+              Pi_Etc_Money_Money: "0007500"
             }
           ]
         }
@@ -315,7 +315,7 @@ RSpec.describe OrcaApi::PatientService::PiEtcMoney, orca_api_mock: true do
 
       it "他一部負担額を削除できること" do
         args = {
-          "Pi_Etc_Money_Mode": "Delete"
+          Pi_Etc_Money_Mode: "Delete"
         }
 
         expect_data = [
@@ -542,12 +542,12 @@ RSpec.describe OrcaApi::PatientService::PiEtcMoney, orca_api_mock: true do
 
       it "入外区分エラーが発生した場合、ロック解除を行うこと" do
         args = {
-          "Pi_Etc_Money_Mode": "Modify",
-          "Pi_Etc_Money_Info": [
+          Pi_Etc_Money_Mode: "Modify",
+          Pi_Etc_Money_Info: [
             {
-              "Pi_Etc_Money_Date": "2012-05-15",
-              "Pi_Etc_Money_InOut": "3",
-              "Pi_Etc_Money_Money": "0007500"
+              Pi_Etc_Money_Date: "2012-05-15",
+              Pi_Etc_Money_InOut: "3",
+              Pi_Etc_Money_Money: "0007500"
             }
           ]
         }

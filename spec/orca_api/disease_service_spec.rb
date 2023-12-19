@@ -1,19 +1,19 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::DiseaseService, orca_api_mock: true do
+RSpec.describe OrcaApi::DiseaseService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
   describe "#get" do
+    subject { service.get(args) }
+
     let(:args) {
       {
         "Patient_ID" => patient_id.to_s,
         "Base_Date" => "",
       }
     }
-
-    subject { service.get(args) }
 
     def expect_api01rv2_diseasegetv2(path, params, body, args, response_json)
       expect(path).to eq("/api01rv2/diseasegetv2")
@@ -55,6 +55,8 @@ RSpec.describe OrcaApi::DiseaseService, orca_api_mock: true do
   end
 
   describe "#update" do
+    subject { service.update(args) }
+
     let(:args) {
       {
         "Patient_ID" => "1",
@@ -135,8 +137,6 @@ RSpec.describe OrcaApi::DiseaseService, orca_api_mock: true do
         ],
       }
     }
-
-    subject { service.update(args) }
 
     def expect_orca22_diseasev3(path, body, args, response_json)
       expect(path).to eq("/orca22/diseasev3")

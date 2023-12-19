@@ -1,19 +1,19 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
+RSpec.describe OrcaApi::InterruptionService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
   describe "#list" do
+    subject { service.list(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path|
         expect(path).to eq("/api01rv2/tmedicalgetv2")
         response_json
       end
     end
-
-    subject { service.list(args) }
 
     context '正常系' do
       let(:response_json) { load_orca_api_response("api01rv2_tmedicalgetv2_list.json") }
@@ -37,14 +37,14 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
   end
 
   describe "#detail" do
+    subject { service.detail(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path|
         expect(path).to eq("/api21/tmedicalmodv2")
         response_json
       end
     end
-
-    subject { service.detail(args) }
 
     context '正常系' do
       let(:response_json) { load_orca_api_response("api21_tmedicalmodv2_detail.json") }
@@ -69,6 +69,8 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
   end
 
   describe "#create" do
+    subject { service.create(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path, params:, body:|
         expect(path).to eq("/api21/medicalmodv2")
@@ -77,8 +79,6 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
         response_json
       end
     end
-
-    subject { service.create(args) }
 
     context '正常系' do
       let(:response_json) { load_orca_api_response("api21_medicalmodv2_create.json") }
@@ -156,6 +156,8 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
   end
 
   describe "#destroy" do
+    subject { service.destroy(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path, params:, body:|
         expect(path).to eq("/api21/medicalmodv2")
@@ -164,8 +166,6 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
         response_json
       end
     end
-
-    subject { service.destroy(args) }
 
     context '正常系' do
       let(:response_json) { load_orca_api_response("api21_medicalmodv2_destroy.json") }
@@ -191,6 +191,8 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
   end
 
   describe "#update" do
+    subject { service.update(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path, params:, body:|
         expect(path).to eq("/api21/medicalmodv2")
@@ -199,8 +201,6 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
         response_json
       end
     end
-
-    subject { service.update(args) }
 
     context '正常系' do
       let(:response_json) { load_orca_api_response("api21_medicalmodv2_update.json") }
@@ -249,6 +249,8 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
   end
 
   describe "#out_create" do
+    subject { service.out_create(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path, params:, body:|
         expect(path).to eq("/api21/medicalmodv2")
@@ -257,8 +259,6 @@ RSpec.describe OrcaApi::InterruptionService, orca_api_mock: true do
         response_json
       end
     end
-
-    subject { service.out_create(args) }
 
     context '正常系' do
       let(:response_json) { load_orca_api_response("api21_medicalmodv2_out_create.json") }

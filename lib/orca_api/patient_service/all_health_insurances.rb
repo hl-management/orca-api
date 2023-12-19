@@ -1,5 +1,8 @@
 module OrcaApi
   class PatientService < Service
+    # 全保険組合せ一覧取得API
+    #
+    # @see https://www.orca.med.or.jp/receipt/tec/api/insurancecombi.html
     class AllHealthInsurances < Service
       def get(id, params)
         api_path = "/api01rv2/patientlst6v2"

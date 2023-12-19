@@ -1,17 +1,17 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::PrintService, orca_api_mock: true do
+RSpec.describe OrcaApi::PrintService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json, false) }
 
   describe "#create" do
+    subject { service.create(type, patient_id, invoice_number, outside_class, push_notification) }
+
     let(:patient_id) { "00216" }
     let(:invoice_number) { "0000861" }
     let(:outside_class) { true }
     let(:push_notification) { false }
-
-    subject { service.create(type, patient_id, invoice_number, outside_class, push_notification) }
 
     shared_examples "結果が正しいこと" do
       its("ok?") { is_expected.to be(true) }

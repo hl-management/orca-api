@@ -1,7 +1,9 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::FindService, orca_api_mock: true do
+RSpec.describe OrcaApi::FindService, :orca_api_mock do
+  let(:service) { described_class.new(orca_api) }
+
   describe OrcaApi::FindService::FindResult do
     describe "doing?" do
       it "Api_ResultがE1040であればtrueを返すこと" do
@@ -15,8 +17,6 @@ RSpec.describe OrcaApi::FindService, orca_api_mock: true do
       end
     end
   end
-
-  let(:service) { described_class.new(orca_api) }
 
   describe "#settings" do
     it "検索指示のリクエストを行う際の設定値を返すこと" do
@@ -63,9 +63,9 @@ RSpec.describe OrcaApi::FindService, orca_api_mock: true do
   describe "#find, #result, #finish" do
     it "検索条件や検索結果返却区分を設定できること" do
       find_args = {
-        "Result_Class": "1",
-        "Patient_Information": {
-          "Death_Class": "0",
+        Result_Class: "1",
+        Patient_Information: {
+          Death_Class: "0",
         }
       }
       result_args = {

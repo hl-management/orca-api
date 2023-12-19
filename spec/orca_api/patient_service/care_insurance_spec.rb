@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::CareInsurance, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::CareInsurance, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#get" do
@@ -73,14 +73,14 @@ RSpec.describe OrcaApi::PatientService::CareInsurance, orca_api_mock: true do
     context "正常系" do
       it "介護保険情報を更新できること" do
         args = {
-          "Care_Insurance_Information": {
-            "Insurance_Mode": "Modify",
-            "Care_Insurance_Info": [
+          Care_Insurance_Information: {
+            Insurance_Mode: "Modify",
+            Care_Insurance_Info: [
               {
-                "InsuranceProvider_Number": "1",
-                "HealthInsuredPerson_Number": "",
-                "Certificate_StartDate": "2018-01-01",
-                "Certificate_ExpiredDate": "2018-03-01"
+                InsuranceProvider_Number: "1",
+                HealthInsuredPerson_Number: "",
+                Certificate_StartDate: "2018-01-01",
+                Certificate_ExpiredDate: "2018-03-01"
               }
             ]
           }
@@ -123,8 +123,8 @@ RSpec.describe OrcaApi::PatientService::CareInsurance, orca_api_mock: true do
 
       it "介護保険情報を削除できること" do
         args = {
-          "Care_Insurance_Information": {
-            "Insurance_Mode": "Delete",
+          Care_Insurance_Information: {
+            Insurance_Mode: "Delete",
           }
         }
 
@@ -191,14 +191,14 @@ RSpec.describe OrcaApi::PatientService::CareInsurance, orca_api_mock: true do
 
       it "有効開始日 ＞ 有効終了日の場合、エラーが発生してロックを解除すること" do
         args = {
-          "Care_Insurance_Information": {
-            "Insurance_Mode": "Modify",
-            "Care_Insurance_Info": [
+          Care_Insurance_Information: {
+            Insurance_Mode: "Modify",
+            Care_Insurance_Info: [
               {
-                "InsuranceProvider_Number": "1",
-                "HealthInsuredPerson_Number": "",
-                "Certificate_StartDate": "2018-03-01",
-                "Certificate_ExpiredDate": "2018-01-01"
+                InsuranceProvider_Number: "1",
+                HealthInsuredPerson_Number: "",
+                Certificate_StartDate: "2018-03-01",
+                Certificate_ExpiredDate: "2018-01-01"
               }
             ]
           }
