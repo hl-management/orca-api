@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::HealthInsurance, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::HealthInsurance, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#get" do
@@ -76,22 +76,22 @@ RSpec.describe OrcaApi::PatientService::HealthInsurance, orca_api_mock: true do
         args = {
           "HealthInsurance_Info" => [
             {
-              "InsuranceProvider_Mode": "Modify",
-              "InsuranceProvider_Id": "2",
-              "InsuranceProvider_Class": "009",
-              "InsuranceProvider_Number": "",
-              "InsuranceProvider_WholeName": "協会",
-              "HealthInsuredPerson_Symbol": "２",
-              "HealthInsuredPerson_Number": "３４５６７",
-              "HealthInsuredPerson_Continuation": "",
-              "HealthInsuredPerson_Assistance": "",
-              "RelationToInsuredPerson": "2",
-              "HealthInsuredPerson_WholeName": "テスト　太郎",
-              "Certificate_StartDate": "2012-10-01",
-              "Certificate_ExpiredDate": "2018-02-28",
-              "Certificate_GetDate": "2012-10-01",
-              "Certificate_CheckDate": "2018-02-01",
-              "Rate_Class": ""
+              InsuranceProvider_Mode: "Modify",
+              InsuranceProvider_Id: "2",
+              InsuranceProvider_Class: "009",
+              InsuranceProvider_Number: "",
+              InsuranceProvider_WholeName: "協会",
+              HealthInsuredPerson_Symbol: "２",
+              HealthInsuredPerson_Number: "３４５６７",
+              HealthInsuredPerson_Continuation: "",
+              HealthInsuredPerson_Assistance: "",
+              RelationToInsuredPerson: "2",
+              HealthInsuredPerson_WholeName: "テスト　太郎",
+              Certificate_StartDate: "2012-10-01",
+              Certificate_ExpiredDate: "2018-02-28",
+              Certificate_GetDate: "2012-10-01",
+              Certificate_CheckDate: "2018-02-01",
+              Rate_Class: ""
             }
           ]
         }
@@ -235,22 +235,22 @@ RSpec.describe OrcaApi::PatientService::HealthInsurance, orca_api_mock: true do
         args = {
           "HealthInsurance_Info" => [
             {
-              "InsuranceProvider_Mode": "Modify",
-              "InsuranceProvider_Id": "2",
-              "InsuranceProvider_Class": "009",
-              "InsuranceProvider_Number": "",
-              "InsuranceProvider_WholeName": "協会",
-              "HealthInsuredPerson_Symbol": "２",
-              "HealthInsuredPerson_Number": "３４５６７",
-              "HealthInsuredPerson_Continuation": "",
-              "HealthInsuredPerson_Assistance": "",
-              "RelationToInsuredPerson": "2",
-              "HealthInsuredPerson_WholeName": "テスト　太郎",
-              "Certificate_StartDate": "2018-01-15",
-              "Certificate_ExpiredDate": "2012-10-01",
-              "Certificate_GetDate": "2012-10-01",
-              "Certificate_CheckDate": "2018-01-01",
-              "Rate_Class": ""
+              InsuranceProvider_Mode: "Modify",
+              InsuranceProvider_Id: "2",
+              InsuranceProvider_Class: "009",
+              InsuranceProvider_Number: "",
+              InsuranceProvider_WholeName: "協会",
+              HealthInsuredPerson_Symbol: "２",
+              HealthInsuredPerson_Number: "３４５６７",
+              HealthInsuredPerson_Continuation: "",
+              HealthInsuredPerson_Assistance: "",
+              RelationToInsuredPerson: "2",
+              HealthInsuredPerson_WholeName: "テスト　太郎",
+              Certificate_StartDate: "2018-01-15",
+              Certificate_ExpiredDate: "2012-10-01",
+              Certificate_GetDate: "2012-10-01",
+              Certificate_CheckDate: "2018-01-01",
+              Rate_Class: ""
             }
           ]
         }

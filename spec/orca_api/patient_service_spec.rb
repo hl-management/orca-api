@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
@@ -105,9 +105,9 @@ RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
   end
 
   describe "#create" do
-    let(:patient_information) { response_data.first[1]["Patient_Information"] }
-
     subject { service.create(*args) }
+
+    let(:patient_information) { response_data.first[1]["Patient_Information"] }
 
     context "二重登録疑いの患者が存在しない" do
       describe "登録に成功する" do
@@ -239,13 +239,14 @@ RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
         let(:patient_information) { {} }
 
         its("ok?") { is_expected.to be false }
-        its(["Orca_Uid"]) { is_expected.to be nil }
+        its(["Orca_Uid"]) { is_expected.to be_nil }
       end
 
       context "世帯主名からコメント２のチェックでエラーが発生した" do
         let(:response_json) { load_orca_api_response("orca12_patientmodv31_01_E50.json") }
 
         its("ok?") { is_expected.to be false }
+
         %w(
           Patient_Information
           Patient_Message_Information
@@ -259,6 +260,7 @@ RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
 
         its("ok?") { is_expected.to be true }
         its(["Api_Result"]) { is_expected.to eq("W00") }
+
         %w(
           Patient_Information
           Patient_Warning_Information
@@ -408,10 +410,10 @@ RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
   end
 
   describe "#destroy" do
+    subject { service.destroy(*args) }
+
     let(:patient_id) { 1 }
     let(:args) { [patient_id] }
-
-    subject { service.destroy(*args) }
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca12_patientmodv31_02_delete_000.json") }
@@ -590,7 +592,7 @@ RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
     PiEtcMoney
   ).each do |class_name|
     method_suffix = OrcaApi::Client.underscore(class_name)
-    klass = OrcaApi::PatientService.const_get(class_name)
+    klass = described_class.const_get(class_name)
     method_names = klass.instance_methods & (klass.instance_methods(false) + %i(get update)).uniq
 
     describe klass.to_s do
@@ -604,7 +606,7 @@ RSpec.describe OrcaApi::PatientService, orca_api_mock: true do
 
       method_names.each do |method_name|
         describe "##{method_name}_#{method_suffix}" do
-          subject { service.send("#{method_name}_#{method_suffix}", patient_id) }
+          subject { service.send(:"#{method_name}_#{method_suffix}", patient_id) }
 
           it "#{klass}.new(orca_api).#{method_name}(...)を呼び出すこと" do
             expect(inner_service).to receive(method_name).with(patient_id).once.and_return(result)

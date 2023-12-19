@@ -1,5 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+    - rubocop-rspec
+    - rubocop-rake
+    - rubocop-performance
+
 AllCops:
-  TargetRubyVersion: "2.4"
+  TargetRubyVersion: "3.0"
+  NewCops: enable
   Exclude:
     - 'tmp/**/*'
     - 'vendor/**/*'
@@ -45,10 +53,11 @@ Metrics/BlockLength:
   Exclude:
     - 'orca_api.gemspec'
     - 'spec/**/*'
+    - 'Vagrantfile'
 
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
-Metrics/LineLength:
+Layout/LineLength:
   Max: 130
 
 # Configuration parameters: CountKeywordArgs.
@@ -152,11 +161,6 @@ Style/RescueStandardError:
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 # SupportedStyles: prefer_alias, prefer_alias_method
 Style/Alias:
-  Enabled: false
-
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
   Enabled: false
 
 # Configuration parameters: MinBodyLength.

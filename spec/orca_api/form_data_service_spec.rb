@@ -1,14 +1,14 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::FormDataService, orca_api_mock: true do
+RSpec.describe OrcaApi::FormDataService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json, false) }
 
   describe "#get" do
-    let(:data_id) { SecureRandom.hex }
-
     subject { service.get data_id }
+
+    let(:data_id) { SecureRandom.hex }
 
     before do
       expect(orca_api).to receive(:call).with("/api01rv2/formdatagetv2",

@@ -1,19 +1,19 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::PrescriptionPrintService, orca_api_mock: true do
+RSpec.describe OrcaApi::PrescriptionPrintService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
   describe "#get_medical_fee" do
+    subject { service.get_medical_fee(args) }
+
     before do
       expect(orca_api).to receive(:call_01).exactly(1) do |path|
         expect(path).to eq("/api21/medicalmodv31")
         response_json
       end
     end
-
-    subject { service.get_medical_fee(args) }
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca21_medicalmodv31_01.json") }
@@ -33,14 +33,14 @@ RSpec.describe OrcaApi::PrescriptionPrintService, orca_api_mock: true do
   end
 
   describe "#medical_treatment" do
+    subject { service.medical_treatment(args) }
+
     before do
       expect(orca_api).to receive(:medical_call).exactly(1) do |path|
         expect(path).to eq("/api21/medicalmodv32")
         response_json
       end
     end
-
-    subject { service.medical_treatment(args) }
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca21_medicalmodv32_02.json") }
@@ -62,14 +62,14 @@ RSpec.describe OrcaApi::PrescriptionPrintService, orca_api_mock: true do
   end
 
   describe "#medical_check" do
+    subject { service.medical_check(args) }
+
     before do
       expect(orca_api).to receive(:medical_call).exactly(1) do |path|
         expect(path).to eq("/api21/medicalmodv32")
         response_json
       end
     end
-
-    subject { service.medical_check(args) }
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca21_medicalmodv32_03.json") }

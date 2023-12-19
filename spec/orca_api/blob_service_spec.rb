@@ -2,7 +2,7 @@ require "spec_helper"
 require_relative "shared_examples"
 require "stringio"
 
-RSpec.describe OrcaApi::BlobService, orca_api_mock: true do
+RSpec.describe OrcaApi::BlobService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#get" do

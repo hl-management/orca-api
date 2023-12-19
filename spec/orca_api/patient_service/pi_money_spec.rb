@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::PiMoney, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::PiMoney, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#target_of" do
@@ -284,15 +284,15 @@ RSpec.describe OrcaApi::PatientService::PiMoney, orca_api_mock: true do
     context "正常系" do
       it "公費負担額を更新できること" do
         args = {
-          "Pi_Money_Mode": "Modify",
-          "Pi_Money_Info": [
+          Pi_Money_Mode: "Modify",
+          Pi_Money_Info: [
             {
-              "Pi_Money_Line_Mode": "",
-              "Pi_Money_Number": "001",
-              "Pi_Money_StartDate": "2011-10-01",
-              "Pi_Money_ExpiredDate": "9999-12-31",
-              "Pi_Money_Money1": "0007500",
-              "Pi_Money_Money2": "0002500"
+              Pi_Money_Line_Mode: "",
+              Pi_Money_Number: "001",
+              Pi_Money_StartDate: "2011-10-01",
+              Pi_Money_ExpiredDate: "9999-12-31",
+              Pi_Money_Money1: "0007500",
+              Pi_Money_Money2: "0002500"
             }
           ]
         }
@@ -353,7 +353,7 @@ RSpec.describe OrcaApi::PatientService::PiMoney, orca_api_mock: true do
 
       it "公費負担額を削除できること" do
         args = {
-          "Pi_Money_Mode": "Delete"
+          Pi_Money_Mode: "Delete"
         }
 
         expect_data = [
@@ -488,15 +488,15 @@ RSpec.describe OrcaApi::PatientService::PiMoney, orca_api_mock: true do
 
       it "公費負担適用開始日入力エラーが発生した場合、ロック解除を行うこと" do
         args = {
-          "Pi_Money_Mode": "Modify",
-          "Pi_Money_Info": [
+          Pi_Money_Mode: "Modify",
+          Pi_Money_Info: [
             {
-              "Pi_Money_Line_Mode": "",
-              "Pi_Money_Number": "001",
-              "Pi_Money_StartDate": "9999-12-31",
-              "Pi_Money_ExpiredDate": "2011-10-01",
-              "Pi_Money_Money1": "0007500",
-              "Pi_Money_Money2": "0002500"
+              Pi_Money_Line_Mode: "",
+              Pi_Money_Number: "001",
+              Pi_Money_StartDate: "9999-12-31",
+              Pi_Money_ExpiredDate: "2011-10-01",
+              Pi_Money_Money1: "0007500",
+              Pi_Money_Money2: "0002500"
             }
           ]
         }

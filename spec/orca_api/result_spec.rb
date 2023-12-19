@@ -1,6 +1,8 @@
 require "spec_helper"
 
 RSpec.describe OrcaApi::Result do
+  subject { described_class.new(raw) }
+
   let(:haori_ok_response) {
     {
       "patientmodres" => {
@@ -46,8 +48,6 @@ RSpec.describe OrcaApi::Result do
   }
 
   let(:raw) { response.to_json }
-
-  subject { described_class.new(raw) }
 
   context "HAORIの正常レスポンス" do
     let(:response) { haori_ok_response }

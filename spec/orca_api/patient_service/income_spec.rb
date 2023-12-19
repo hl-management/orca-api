@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::Income, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::Income, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
@@ -96,12 +96,12 @@ RSpec.describe OrcaApi::PatientService::Income, orca_api_mock: true do
   end
 
   describe "#update" do
+    subject { service.update(*args) }
+
     let(:patient_id) { 209 }
     let(:args) {
       [patient_id, params]
     }
-
-    subject { service.update(*args) }
 
     context "正常系" do
       before do

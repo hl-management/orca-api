@@ -1,9 +1,9 @@
 require "spec_helper"
 
 RSpec.describe OrcaApi::FormResult do
-  let(:response_json) { load_orca_api_response("api01rv2_formdatagetv2.json") }
-
   subject { described_class.new(response_json) }
+
+  let(:response_json) { load_orca_api_response("api01rv2_formdatagetv2.json") }
 
   its(:raw) { is_expected.to eq(response_json) }
   its(:body) { is_expected.to eq(parse_json(response_json, false)) }

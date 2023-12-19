@@ -1,7 +1,11 @@
 # frozen_string_literal: true
+
 require_relative 'service'
 
 module OrcaApi
+  # 医療機関基本情報取得API
+  #
+  # @see https://www.orca.med.or.jp/receipt/tec/api/systemkanri.html
   class HospitalService < Service
     # 医療機関基本情報一覧の取得
     #
@@ -10,8 +14,6 @@ module OrcaApi
     #
     # @return [OrcaApi::Result]
     #   https://www.orca.med.or.jp/receipt/tec/api/systemkanri.html#response3
-    #
-    # @see https://www.orca.med.or.jp/receipt/tec/api/systemkanri.html
     def list(base_date = "")
       api_path = "/api01rv2/system01lstv2"
       req_name = "system01_managereq"

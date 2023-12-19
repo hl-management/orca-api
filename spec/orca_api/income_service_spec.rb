@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::IncomeService, orca_api_mock: true do
+RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
@@ -94,17 +94,13 @@ RSpec.describe OrcaApi::IncomeService, orca_api_mock: true do
                      Processing_Time
                    )
                  when "06"
-                   %w(
-                   )
+                   %w()
                  when "07"
-                   %w(
-                   )
+                   %w()
                  when "08"
-                   %w(
-                   )
+                   %w()
                  when "09"
-                   %w(
-                   )
+                   %w()
                  else
                    raise "invalid mode: #{mode}"
                  end
@@ -163,6 +159,8 @@ RSpec.describe OrcaApi::IncomeService, orca_api_mock: true do
     end
 
     describe "#list" do
+      subject { service.list(args) }
+
       let(:request_mode) { "01" }
 
       let(:patient_id) { "1" }
@@ -182,8 +180,6 @@ RSpec.describe OrcaApi::IncomeService, orca_api_mock: true do
           }
         }
       }
-
-      subject { service.list(args) }
 
       context "正常系" do
         include_context "ロックを伴う"
@@ -248,6 +244,8 @@ RSpec.describe OrcaApi::IncomeService, orca_api_mock: true do
     end
 
     describe "#get" do
+      subject { service.get(args) }
+
       let(:request_mode) { "02" }
 
       let(:patient_id) { "1" }
@@ -259,8 +257,6 @@ RSpec.describe OrcaApi::IncomeService, orca_api_mock: true do
           "Invoice_Number" => invoice_number,
         }
       }
-
-      subject { service.get(args) }
 
       context "正常系" do
         include_context "ロックを伴う"

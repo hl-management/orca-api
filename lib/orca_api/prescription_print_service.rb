@@ -1,7 +1,9 @@
 # frozen_string_literal: true
+
 require_relative 'service'
 
 module OrcaApi
+  # 処方箋
   class PrescriptionPrintService < Service
     def get_medical_fee(params)
       body = {
@@ -19,32 +21,32 @@ module OrcaApi
 
     def medical_treatment(params)
       params = params.merge({
-        "Request_Number" => "02",
-      })
+                              "Request_Number" => "02",
+                            })
 
       Result.new(medical_call(params))
     end
 
     def medical_check(params)
       params = params.merge({
-        "Request_Number" => "03",
-      })
+                              "Request_Number" => "03",
+                            })
 
       Result.new(medical_call(params))
     end
 
     private
 
-      def call_01(params)
-        orca_api.call("/api21/medicalmodv31", body: {
-          "medicalv3req1" => params
-        })
-      end
+    def call_01(params)
+      orca_api.call("/api21/medicalmodv31", body: {
+                      "medicalv3req1" => params
+                    })
+    end
 
     def medical_call(params)
       orca_api.call("/api21/medicalmodv32", body: {
-        "medicalv3req2" => params,
-      })
+                      "medicalv3req2" => params,
+                    })
     end
   end
 end

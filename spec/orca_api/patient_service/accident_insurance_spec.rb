@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::AccidentInsurance, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::AccidentInsurance, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
@@ -169,12 +169,12 @@ RSpec.describe OrcaApi::PatientService::AccidentInsurance, orca_api_mock: true d
   end
 
   describe "#update" do
+    subject { service.update(*args) }
+
     let(:patient_id) { 209 }
     let(:args) {
       [patient_id, params]
     }
-
-    subject { service.update(*args) }
 
     context "正常系" do
       before do
@@ -593,6 +593,7 @@ RSpec.describe OrcaApi::PatientService::AccidentInsurance, orca_api_mock: true d
             }
           )
         }
+
         before do
           count = 0
           prev_response_json = nil
@@ -649,6 +650,7 @@ RSpec.describe OrcaApi::PatientService::AccidentInsurance, orca_api_mock: true d
             prev_response_json
           }
         end
+
         its("ok?") { is_expected.to be false }
         its("message") { is_expected.to eq("選択項目が未指定です。") }
       end

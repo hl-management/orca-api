@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::SubjectiveService, orca_api_mock: true do
+RSpec.describe OrcaApi::SubjectiveService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#create" do
@@ -38,8 +38,7 @@ RSpec.describe OrcaApi::SubjectiveService, orca_api_mock: true do
         "Subjectives_Code" => "foobarbaz",
         "UnknownParameter" => "UnknownValue",
         "HealthInsurance_Information" => {
-          "PublicInsurance_Information" => {
-          }
+          "PublicInsurance_Information" => {}
         }
       }
       result = service.create params
@@ -173,8 +172,7 @@ RSpec.describe OrcaApi::SubjectiveService, orca_api_mock: true do
         "Subjectives_Detail_Record" => "07",
         "UnknownParameter" => "UnknownValue",
         "HealthInsurance_Information" => {
-          "PublicInsurance_Information" => {
-          }
+          "PublicInsurance_Information" => {}
         }
       }
       result = service.destroy params

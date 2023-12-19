@@ -341,7 +341,7 @@ module OrcaApi
 
       method_names = klass.instance_methods & (klass.instance_methods(false) + %i(get update fetch)).uniq
       method_names.each do |method_name|
-        define_method("#{method_name}_#{method_suffix}") do |*args|
+        define_method(:"#{method_name}_#{method_suffix}") do |*args|
           klass.new(orca_api).send(method_name, *args)
         end
       end
@@ -377,7 +377,7 @@ module OrcaApi
     end
 
     def unlock(locked_result)
-      if locked_result&.respond_to?(:orca_uid)
+      if locked_result.respond_to?(:orca_uid)
         req = {
           "Request_Number" => "99",
           "Karte_Uid" => orca_api.karte_uid,

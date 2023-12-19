@@ -1,9 +1,9 @@
 require "spec_helper"
 
 RSpec.describe OrcaApi::BinaryResult do
-  let(:raw) { load_orca_api_response("api01rv2_imagegetv2.zip") }
-
   subject { described_class.new(raw) }
+
+  let(:raw) { load_orca_api_response("api01rv2_imagegetv2.zip") }
 
   its(:raw) { is_expected.to eq(raw) }
   its(:body) { is_expected.to eq(raw) }

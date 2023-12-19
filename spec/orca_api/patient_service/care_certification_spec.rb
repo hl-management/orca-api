@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::CareCertification, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::CareCertification, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
 
   describe "#get" do
@@ -73,14 +73,14 @@ RSpec.describe OrcaApi::PatientService::CareCertification, orca_api_mock: true d
     context "正常系" do
       it "介護認定情報を更新できること" do
         args = {
-          "Care_Certification_Information": {
-            "Certification_Mode": "Modify",
-            "Certification_Info": [
+          Care_Certification_Information: {
+            Certification_Mode: "Modify",
+            Certification_Info: [
               {
-                "Need_Care_State_Code": "01",
-                "Certification_Date": "2018-01-01",
-                "Certificate_StartDate": "2018-01-01",
-                "Certificate_ExpiredDate": "2018-03-01"
+                Need_Care_State_Code: "01",
+                Certification_Date: "2018-01-01",
+                Certificate_StartDate: "2018-01-01",
+                Certificate_ExpiredDate: "2018-03-01"
               }
             ]
           }
@@ -123,8 +123,8 @@ RSpec.describe OrcaApi::PatientService::CareCertification, orca_api_mock: true d
 
       it "介護認定情報を削除できること" do
         args = {
-          "Care_Certification_Information": {
-            "Certification_Mode": "Delete"
+          Care_Certification_Information: {
+            Certification_Mode: "Delete"
           }
         }
 
@@ -191,14 +191,14 @@ RSpec.describe OrcaApi::PatientService::CareCertification, orca_api_mock: true d
 
       it "有効開始日 ＞ 有効終了日の場合、エラーが発生してロックを解除すること" do
         args = {
-          "Care_Certification_Information": {
-            "Certification_Mode": "Modify",
-            "Certification_Info": [
+          Care_Certification_Information: {
+            Certification_Mode: "Modify",
+            Certification_Info: [
               {
-                "Need_Care_State_Code": "01",
-                "Certification_Date": "2018-01-01",
-                "Certificate_StartDate": "2018-03-01",
-                "Certificate_ExpiredDate": "2018-01-01"
+                Need_Care_State_Code: "01",
+                Certification_Date: "2018-01-01",
+                Certificate_StartDate: "2018-03-01",
+                Certificate_ExpiredDate: "2018-01-01"
               }
             ]
           }

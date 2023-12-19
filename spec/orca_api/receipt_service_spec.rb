@@ -1,7 +1,7 @@
 require "spec_helper"
 require_relative "shared_examples"
 
-RSpec.describe OrcaApi::ReceiptService, orca_api_mock: true do
+RSpec.describe OrcaApi::ReceiptService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:orca_uid) { "c585dc3e-fa42-4f45-b02f-5a4166d0721d" }
   let(:response_data) { parse_json(response_json) }
@@ -54,10 +54,10 @@ RSpec.describe OrcaApi::ReceiptService, orca_api_mock: true do
     end
 
     describe "#create" do
+      subject { service.create(args) }
+
       let(:request_number) { "01" }
       let(:expected_orca_uid) { "" }
-
-      subject { service.create(args) }
 
       context "正常系" do
         let(:response_json) { load_orca_api_response("orca42_receiptmakev3_01.json") }
@@ -75,11 +75,11 @@ RSpec.describe OrcaApi::ReceiptService, orca_api_mock: true do
     end
 
     describe "#created" do
+      subject { service.created(args) }
+
       let(:request_number) { "02" }
       let(:expected_orca_uid) { orca_uid }
       let(:args) { super().merge("Orca_Uid" => orca_uid) }
-
-      subject { service.created(args) }
 
       context "正常系" do
         context "処理中" do
@@ -169,9 +169,9 @@ RSpec.describe OrcaApi::ReceiptService, orca_api_mock: true do
     end
 
     describe "#print" do
-      let(:request_number) { "01" }
-
       subject { service.print(args) }
+
+      let(:request_number) { "01" }
 
       context "正常系" do
         let(:response_json) { load_orca_api_response("orca42_receiptprintv3_01.json") }
@@ -195,9 +195,9 @@ RSpec.describe OrcaApi::ReceiptService, orca_api_mock: true do
     end
 
     describe "#printed" do
-      let(:request_number) { "02" }
-
       subject { service.printed(args) }
+
+      let(:request_number) { "02" }
 
       context "正常系" do
         context "処理中" do

@@ -1,19 +1,19 @@
 require "spec_helper"
 require_relative "../shared_examples"
 
-RSpec.describe OrcaApi::PatientService::PatientModService, orca_api_mock: true do
+RSpec.describe OrcaApi::PatientService::PatientModService, :orca_api_mock do
   let(:service) { described_class.new(orca_api) }
   let(:response_data) { parse_json(response_json) }
 
   describe "#create" do
+    subject { service.create(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path|
         expect(path).to eq("/orca12/patientmodv2?class=01")
         response_json
       end
     end
-
-    subject { service.create(args) }
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca12_patientmodv2_01.json") }
@@ -47,14 +47,14 @@ RSpec.describe OrcaApi::PatientService::PatientModService, orca_api_mock: true d
   end
 
   describe "#update" do
+    subject { service.update(args) }
+
     before do
       expect(orca_api).to receive(:call).exactly(1) do |path|
         expect(path).to eq("/orca12/patientmodv2?class=02")
         response_json
       end
     end
-
-    subject { service.update(args) }
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca12_patientmodv2_02.json") }
