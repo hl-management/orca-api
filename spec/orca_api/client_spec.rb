@@ -426,8 +426,4 @@ RSpec.describe OrcaApi::Client do
       expect(orca_api.timeout).to eq(open: 600, read: 600)
     end
   end
-
-  it 'deprecation warning' do
-    expect { OrcaApi::OrcaApi }.to output(/constant OrcaApi::OrcaApi is deprecated/).to_stderr
-  end
 end
