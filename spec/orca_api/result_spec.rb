@@ -58,7 +58,7 @@ RSpec.describe OrcaApi::Result do
     its(:message) { is_expected.to eq("000:検索処理終了") }
 
     %i(api_result api_result_message request_number response_number karte_uid orca_uid).each do |sym|
-      it { is_expected.to be_respond_to(sym) }
+      it { is_expected.to respond_to(sym) }
     end
 
     its(:api_result) { is_expected.to eq("000") }
