@@ -1,7 +1,7 @@
 module OrcaApi
   class OrcaQkanService < Service
     # 利用者向け請求書取得API
-    class OfficeInformationService < Service
+    class QkanProviderListService < Service
       def get
         orca_api.call(
           "/provider01/providerlst",
