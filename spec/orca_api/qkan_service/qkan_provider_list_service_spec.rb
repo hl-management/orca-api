@@ -34,7 +34,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanProviderListService do # rubocop:di
     end
 
     it "returns the API response" do
-      result = service.get.to_hash
+      result = service.get
 
       expect(result[:success]).to be true
       expect(result[:response]).to include("処理終了")
