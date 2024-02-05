@@ -1,7 +1,7 @@
 module OrcaApi
   class OrcaQkanService < Service
     # 患者サービス API
-    class PatientQkanService < Service
+    class QkanPatientService < Service
       def create(params)
         orca_api.call(
           "/patient01/patientadd",
