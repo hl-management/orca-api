@@ -1,0 +1,32 @@
+{
+  "xmlio2": {
+    "patientaddres": {
+      "type": "record",
+      "Information_Date": "2024-01-23",
+      "Information_Time": "16:44:30",
+      "Api_Result": "0000",
+      "Api_Result_Message": "処理終了",
+      "Reskey": "PatientInfo",
+      "Update_Key": "78-20240123164430",
+      "Patient_Id": 78,
+      "Patient_Code": "",
+      "Patient_Family_Name": "検証１",
+      "Patient_First_Name": "検証１",
+      "Patient_Family_Kana": "テス",
+      "Patient_First_Kana": "ト",
+      "Patient_Sex": 1,
+      "Patient_Birthday": "1991-12-12",
+      "Patient_Tel_First": "",
+      "Patient_Tel_Second": "",
+      "Patient_Tel_Third": "",
+      "Patient_Zip_First": "",
+      "Patient_Zip_Second": "",
+      "Show_Flag": 1,
+      "Delete_Flag": 0,
+      "Address_First": "",
+      "Address_Second": "",
+      "Address_Third": "",
+      "Kyufukanri_Zero_Flag": 0
+    }
+  }
+}
