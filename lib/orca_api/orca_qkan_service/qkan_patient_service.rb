@@ -20,6 +20,27 @@ module OrcaApi
           XML
         )
       end
+
+      def update(params)
+        orca_api.call(
+          "/patient01/patientmod",
+          format: 'xml',
+          body: <<-XML
+          <data>
+            <patientmodreq type="record">
+              <Request_Number type="string">02</Request_Number>
+              <Patient_Id type="string">#{params[:qkan_patient_no]}</Patient_Id>
+              <Patient_Family_Name type="string">#{params[:last_name]}</Patient_Family_Name>
+              <Patient_First_Name type="string">#{params[:first_name]}</Patient_First_Name>
+              <Patient_Family_Kana type="string">#{params[:last_kana_name]}</Patient_Family_Kana>
+              <Patient_First_Kana type="string">#{params[:first_kana_name]}</Patient_First_Kana>
+              <Patient_Sex type="string">#{params[:gender]}</Patient_Sex>
+              <Patient_Birthday type="string">#{params[:birthday]}</Patient_Birthday>
+            </patientmodreq>
+          </data>
+          XML
+        )
+      end
     end
   end
 end
