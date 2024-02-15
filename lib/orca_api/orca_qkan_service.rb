@@ -11,6 +11,8 @@ module OrcaApi
   #   @see OrcaQkanService::QkanProviderListService#get
   # @!method qkan_patient_service
   #   @see OrcaQkanService::QkanPatientService#create
+  # @!method qkan_homecare_master_service
+  #   @see OrcaQkanService::QkanHomecareMasterService#get
 
   # @!endgroup
   class OrcaQkanService < Service
@@ -18,6 +20,7 @@ module OrcaApi
       PatientPaygetService
       QkanProviderListService
       QkanPatientService
+      QkanHomecareMasterService
     ).each do |class_name|
       method_suffix = Client.underscore(class_name)
       require_relative "orca_qkan_service/#{method_suffix}"
