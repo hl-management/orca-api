@@ -41,6 +41,20 @@ module OrcaApi
           XML
         )
       end
+
+      def get(patient_id)
+        orca_api.call(
+          "/patient01/patientinf",
+          format: 'xml',
+          body: <<-XML
+          <data>
+            <patientinfreq type="record">
+              <Patient_Id type="integer">#{patient_id}</Patient_Id>
+            </patientinfreq>
+          </data>
+          XML
+        )
+      end
     end
   end
 end
