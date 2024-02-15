@@ -9,7 +9,7 @@ module OrcaApi
           body: <<-XML
               <data>
                 <mservicecodelstreq type="record">
-                  <System_Service_Kind_Detail type="string">1111</System_Service_Kind_Detail>
+                  <System_Service_Kind_Detail type="string">11111</System_Service_Kind_Detail>
                   <Target_Date type="string">#{target_date}</Target_Date>
                 </mservicecodelstreq>
               </data>
