@@ -235,6 +235,9 @@ module OrcaApi # :nodoc:
     # @!method new_orca_qkan_service
     # @return [OrcaQkanService] OrcaQkanServiceインスタンス
 
+    # @!method new_homecare_master_service
+    # @return [HomecareMasterService] HomecareMasterServiceインスタンス
+
     # @!endgroup
 
     service_class_names = %w(
@@ -267,6 +270,7 @@ module OrcaApi # :nodoc:
       IncomeInformationService
       StatementService
       OrcaQkanService
+      HomecareMasterService
     )
     service_class_names.each do |name|
       s = underscore(name)
