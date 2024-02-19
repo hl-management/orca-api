@@ -55,6 +55,21 @@ module OrcaApi
           XML
         )
       end
+
+      def list(start_date, end_date)
+        orca_api.call(
+          "/patient01/patientidlst1",
+          format: 'xml',
+          body: <<-XML
+          <data>
+            <patientidlst1req type="record">
+                <Base_StartDate type="string">#{start_date}</Base_StartDate>
+                <Base_EndDate type="string">#{end_date}</Base_EndDate>
+            </patientidlst1req>
+          </data>
+          XML
+        )
+      end
     end
   end
 end
