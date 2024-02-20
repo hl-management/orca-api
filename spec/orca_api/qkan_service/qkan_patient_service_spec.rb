@@ -23,6 +23,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanPatientService do # rubocop:disable
         last_kana_name: "テス",
         first_kana_name: "ト",
         birthday: '1991-12-12',
+        orca_patient_no: '0000'
       }
       expected_path = "/patient01/patientadd"
       expected_format = 'xml'
@@ -35,6 +36,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanPatientService do # rubocop:disable
               <Patient_First_Kana type="string">#{params[:first_kana_name]}</Patient_First_Kana>
               <Patient_Sex type="string">#{params[:gender]}</Patient_Sex>
               <Patient_Birthday type="string">#{params[:birthday]}</Patient_Birthday>
+              <Patient_Code type="string">#{params[:orca_patient_no]}</Patient_Code>
             </patientaddreq>
           </data>
       XML
