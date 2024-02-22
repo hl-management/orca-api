@@ -17,7 +17,13 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanMasterCodeListService do # rubocop:
     end
 
     it "returns the API response" do
-      result = service.get
+      santei_item_information = [{ item_no: '1', search_value: '1' }, { item_no: '3', search_value: '1' }]
+      params = {
+        target_date: '2024-02-15',
+        service_code_kind: '13',
+        santei_item_information: santei_item_information,
+      }
+      result = service.get(params)
 
       expect(result[:success]).to be true
       expect(result[:response]).to include("処理終了")
