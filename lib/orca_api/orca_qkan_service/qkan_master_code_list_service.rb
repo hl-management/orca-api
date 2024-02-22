@@ -22,7 +22,7 @@ module OrcaApi
           body: <<-XML
               <data>
                 <mservicecodelstreq type='record'>
-                  <Service_Code_Kind type='string'>#{param[:service_code_kind]}</Service_Code_Kind>
+                  <Service_Code_Kind type='string'>#{params[:service_code_kind]}</Service_Code_Kind>
                   <Target_Date type='string'>#{params[:target_date]}</Target_Date>
                   <Kasan_Flag type='string'>0</Kasan_Flag>
                   <Santei_Item_Information type='array'>
