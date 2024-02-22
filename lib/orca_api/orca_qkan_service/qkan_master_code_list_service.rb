@@ -7,8 +7,8 @@ module OrcaApi
       # @param santei_item_information [Array<Hash>] 算定項目情報
       # @option santei_item_information :item_no 算定項目番号
       # @option santei_item_information :search_value 算定項目検索値
-      def get(target_date: '', service_code_kind: '', santei_item_information: [])
-        santei_items_xml = santei_item_information.map do |item|
+      def get(params)
+        santei_items_xml = params[:santei_item_information].map do |item|
           <<~XML
             <Santei_Item_Information_child type="record">
               <Item_No type="string">#{item[:item_no]}</Item_No>
@@ -22,8 +22,8 @@ module OrcaApi
           body: <<-XML
               <data>
                 <mservicecodelstreq type='record'>
-                  <Service_Code_Kind type='string'>#{service_code_kind}</Service_Code_Kind>
-                  <Target_Date type='string'>#{target_date}</Target_Date>
+                  <Service_Code_Kind type='string'>#{param[:service_code_kind]}</Service_Code_Kind>
+                  <Target_Date type='string'>#{params[:target_date]}</Target_Date>
                   <Kasan_Flag type='string'>0</Kasan_Flag>
                   <Santei_Item_Information type='array'>
                     #{santei_items_xml}
