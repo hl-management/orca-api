@@ -1,8 +1,8 @@
 # spec/orca_api/qkan_service/qkan_provider_list_service_spec.rb
 require "spec_helper"
-require "orca_api/orca_qkan_service/qkan_homecare_master_service"
+require "orca_api/orca_qkan_service/qkan_master_code_list_service"
 
-RSpec.describe OrcaApi::OrcaQkanService::QkanHomecareMasterService do # rubocop:disable RSpec/SpecFilePathFormat, RSpec/FilePath
+RSpec.describe OrcaApi::OrcaQkanService::QkanMasterCodeListService do # rubocop:disable RSpec/FilePath
   orca_model = 'OrcaApi::Api'
   let(:orca_api) { instance_double(orca_model, call: api_response) }
   let(:service) { described_class.new(orca_api) }
