@@ -1,0 +1,580 @@
+{
+  "mservicecodelstres": {
+    "type": "record",
+    "Information_Date": "2024-02-15",
+    "Information_Time": "15:50:39",
+    "Api_Result": "0000",
+    "Api_Result_Message": "処理終了",
+    "Reskey": "MServiceCodeList",
+    "Target_Count": "63",
+    "MServiceCode_Information": [
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111111111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1010",
+        "Service_Name": "訪看I１",
+        "Service_Unit": 313
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111211111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1015",
+        "Service_Name": "訪看I１・夜",
+        "Service_Unit": 391
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111311111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1016",
+        "Service_Name": "訪看I１・深",
+        "Service_Unit": 470
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111121111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1017",
+        "Service_Name": "訪看I１・複１１",
+        "Service_Unit": 567
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111221111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1018",
+        "Service_Name": "訪看I１・夜・複１１",
+        "Service_Unit": 645
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111321111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1019",
+        "Service_Name": "訪看I１・深・複１１",
+        "Service_Unit": 724
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111131111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1040",
+        "Service_Name": "訪看I１・複２１",
+        "Service_Unit": 514
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111231111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1041",
+        "Service_Name": "訪看I１・夜・複２１",
+        "Service_Unit": 592
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1111331111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1042",
+        "Service_Name": "訪看I１・深・複２１",
+        "Service_Unit": 671
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211111111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1111",
+        "Service_Name": "訪看I２",
+        "Service_Unit": 470
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211211111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1112",
+        "Service_Name": "訪看I２・夜",
+        "Service_Unit": 588
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211311111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1113",
+        "Service_Name": "訪看I２・深",
+        "Service_Unit": 705
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211121111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1114",
+        "Service_Name": "訪看I２・複１１",
+        "Service_Unit": 724
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211221111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1115",
+        "Service_Name": "訪看I２・夜・複１１",
+        "Service_Unit": 842
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211321111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1116",
+        "Service_Name": "訪看I２・深・複１１",
+        "Service_Unit": 959
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211131111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1117",
+        "Service_Name": "訪看I２・複２１",
+        "Service_Unit": 671
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211231111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1118",
+        "Service_Name": "訪看I２・夜・複２１",
+        "Service_Unit": 789
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1211331111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1119",
+        "Service_Name": "訪看I２・深・複２１",
+        "Service_Unit": 906
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311111111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1211",
+        "Service_Name": "訪看I３",
+        "Service_Unit": 821
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311211111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1212",
+        "Service_Name": "訪看I３・夜",
+        "Service_Unit": 1026
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311311111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1213",
+        "Service_Name": "訪看I３・深",
+        "Service_Unit": 1232
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311122111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1214",
+        "Service_Name": "訪看I３・複１２",
+        "Service_Unit": 1223
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311222111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1215",
+        "Service_Name": "訪看I３・夜・複１２",
+        "Service_Unit": 1428
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311322111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1216",
+        "Service_Name": "訪看I３・深・複１２",
+        "Service_Unit": 1634
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311121111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1217",
+        "Service_Name": "訪看I３・複１１",
+        "Service_Unit": 1075
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311221111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1218",
+        "Service_Name": "訪看I３・夜・複１１",
+        "Service_Unit": 1280
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311321111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1219",
+        "Service_Name": "訪看I３・深・複１１",
+        "Service_Unit": 1486
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311131111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1250",
+        "Service_Name": "訪看I３・複２１",
+        "Service_Unit": 1022
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311231111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1251",
+        "Service_Name": "訪看I３・夜・複２１",
+        "Service_Unit": 1227
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311331111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1252",
+        "Service_Name": "訪看I３・深・複２１",
+        "Service_Unit": 1433
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311132111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1253",
+        "Service_Name": "訪看I３・複２２",
+        "Service_Unit": 1138
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311232111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1254",
+        "Service_Name": "訪看I３・夜・複２２",
+        "Service_Unit": 1343
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1311332111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1255",
+        "Service_Name": "訪看I３・深・複２２",
+        "Service_Unit": 1549
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411111111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1311",
+        "Service_Name": "訪看I４",
+        "Service_Unit": 1125
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411211111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1312",
+        "Service_Name": "訪看I４・夜",
+        "Service_Unit": 1406
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411311111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1313",
+        "Service_Name": "訪看I４・深",
+        "Service_Unit": 1688
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411122111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1314",
+        "Service_Name": "訪看I４・複１２",
+        "Service_Unit": 1527
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411222111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1315",
+        "Service_Name": "訪看I４・夜・複１２",
+        "Service_Unit": 1808
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411322111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1316",
+        "Service_Name": "訪看I４・深・複１２",
+        "Service_Unit": 2090
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411121111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1317",
+        "Service_Name": "訪看I４・複１１",
+        "Service_Unit": 1379
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411221111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1318",
+        "Service_Name": "訪看I４・夜・複１１",
+        "Service_Unit": 1660
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411321111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1319",
+        "Service_Name": "訪看I４・深・複１１",
+        "Service_Unit": 1942
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411111211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1331",
+        "Service_Name": "訪看I４・長",
+        "Service_Unit": 1425
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411211211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1332",
+        "Service_Name": "訪看I４・夜・長",
+        "Service_Unit": 1706
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411311211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1333",
+        "Service_Name": "訪看I４・深・長",
+        "Service_Unit": 1988
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411122211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1334",
+        "Service_Name": "訪看I４・複１２・長",
+        "Service_Unit": 1827
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411222211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1335",
+        "Service_Name": "訪看I４・夜・複１２・長",
+        "Service_Unit": 2108
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411322211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1336",
+        "Service_Name": "訪看I４・深・複１２・長",
+        "Service_Unit": 2390
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411121211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1337",
+        "Service_Name": "訪看I４・複１１・長",
+        "Service_Unit": 1679
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411221211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1338",
+        "Service_Name": "訪看I４・夜・複１１・長",
+        "Service_Unit": 1960
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411321211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1339",
+        "Service_Name": "訪看I４・深・複１１・長",
+        "Service_Unit": 2242
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411131111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1430",
+        "Service_Name": "訪看I４・複２１",
+        "Service_Unit": 1326
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411231111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1431",
+        "Service_Name": "訪看I４・夜・複２１",
+        "Service_Unit": 1607
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411331111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1432",
+        "Service_Name": "訪看I４・深・複２１",
+        "Service_Unit": 1889
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411132111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1433",
+        "Service_Name": "訪看I４・複２２",
+        "Service_Unit": 1442
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411232111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1434",
+        "Service_Name": "訪看I４・夜・複２２",
+        "Service_Unit": 1723
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411332111",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1435",
+        "Service_Name": "訪看I４・深・複２２",
+        "Service_Unit": 2005
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411131211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1440",
+        "Service_Name": "訪看I４・複２１・長",
+        "Service_Unit": 1626
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411231211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1441",
+        "Service_Name": "訪看I４・夜・複２１・長",
+        "Service_Unit": 1907
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411331211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1442",
+        "Service_Name": "訪看I４・深・複２１・長",
+        "Service_Unit": 2189
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411132211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1443",
+        "Service_Name": "訪看I４・複２２・長",
+        "Service_Unit": 1742
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411232211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1444",
+        "Service_Name": "訪看I４・夜・複２２・長",
+        "Service_Unit": 2023
+      },
+      {
+        "type": "record",
+        "System_Service_Kind_Detail": 11311,
+        "System_Service_Code": "1411332211",
+        "Service_Code_Kind": "13",
+        "Service_Code_Item": "1445",
+        "Service_Name": "訪看I４・深・複２２・長",
+        "Service_Unit": 2305
+      }
+    ]
+  }
+}
