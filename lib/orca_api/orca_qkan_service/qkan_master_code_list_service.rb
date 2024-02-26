@@ -8,14 +8,6 @@ module OrcaApi
       # @option santei_item_information :item_no 算定項目番号
       # @option santei_item_information :search_value 算定項目検索値
       def get(params)
-        santei_items_xml = params[:santei_item_information].map do |item|
-          <<~XML
-            <Santei_Item_Information_child type="record">
-              <Item_No type="string">#{item[:item_no]}</Item_No>
-              <Search_Value type="string">#{item[:search_value]}</Search_Value>
-            </Santei_Item_Information_child>
-          XML
-        end.join("\n")
         orca_api.call(
           "/mst01/mservice_codelst",
           format: 'xml',
@@ -26,12 +18,25 @@ module OrcaApi
                   <Target_Date type='string'>#{params[:target_date]}</Target_Date>
                   <Kasan_Flag type='string'>0</Kasan_Flag>
                   <Santei_Item_Information type='array'>
-                    #{santei_items_xml}
+                    #{params[:santei_item_information].present? ? santei_items_xml(params) : ''}
                   </Santei_Item_Information>
                 </mservicecodelstreq>
               </data>
           XML
         )
+      end
+
+      private
+
+      def santei_items_xml(params)
+        params[:santei_item_information].map do |item|
+          <<~XML
+            <Santei_Item_Information_child type="record">
+              <Item_No type="string">#{item[:item_no]}</Item_No>
+              <Search_Value type="string">#{item[:search_value]}</Search_Value>
+            </Santei_Item_Information_child>
+          XML
+        end.join("\n")
       end
     end
   end
