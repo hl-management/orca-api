@@ -18,7 +18,7 @@ module OrcaApi
                   <Target_Date type='string'>#{params[:target_date]}</Target_Date>
                   <Kasan_Flag type='string'>0</Kasan_Flag>
                   <Santei_Item_Information type='array'>
-                    #{params[:santei_item_information].present? ? santei_items_xml(params) : ''}
+                    #{params[:santei_item_information] ? santei_items_xml(params) : ''}
                   </Santei_Item_Information>
                 </mservicecodelstreq>
               </data>
