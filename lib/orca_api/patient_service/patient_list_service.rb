@@ -11,7 +11,7 @@ module OrcaApi
           "Base_StartDate" => start_date,
           "Base_EndDate" => end_date,
         }
-        orca_api.call("/api01rv2/patientlst1v2?class=#{klass}", body: { "patientlst1req" => req })
+        Result.new(orca_api.call("/api01rv2/patientlst1v2?class=#{klass}", body: { "patientlst1req" => req }))
       end
     end
   end
