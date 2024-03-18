@@ -314,6 +314,9 @@ module OrcaApi
     # @!method update_pi_etc_money
     #   @see PatientService::PiEtcMoney#update
 
+    # @!method list_patient_list_service
+    #   @see PatientService::PatientListService#list
+
     # @!endgroup
 
     %w(
@@ -334,12 +337,13 @@ module OrcaApi
       AllHealthInsurances
       PatientModService
       PatientSearchService
+      PatientListService
     ).each do |class_name|
       method_suffix = Client.underscore(class_name)
       require_relative "patient_service/#{method_suffix}"
       klass = const_get(class_name)
 
-      method_names = klass.instance_methods & (klass.instance_methods(false) + %i(get update fetch)).uniq
+      method_names = klass.instance_methods & (klass.instance_methods(false) + %i(get update fetch list)).uniq
       method_names.each do |method_name|
         define_method(:"#{method_name}_#{method_suffix}") do |*args|
           klass.new(orca_api).send(method_name, *args)
