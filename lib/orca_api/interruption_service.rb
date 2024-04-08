@@ -33,7 +33,7 @@ module OrcaApi
       Result.new(orca_api.call(api_path, body: body))
     end
 
-    def destroy_stored(params)
+    def destroy(params)
       api_path = "/api21/tmedicalmodv2"
       req_name = "tmedicalmodreq"
       body = {
@@ -127,12 +127,12 @@ module OrcaApi
     #
     # > データ削除(class=02)、データ変更(class=03)では診療データのみを対象とするため、病名データを設定しても無効となります。
     # @see https://www.orca.med.or.jp/receipt/tec/api/medicalmod.html
-    def destroy(params)
-      body = {
-        "medicalreq" => params
-      }
-      Result.new(call_with_class_number("02", body))
-    end
+    # def destroy(params)
+    #   body = {
+    #     "medicalreq" => params
+    #   }
+    #   Result.new(call_with_class_number("02", body))
+    # end
 
     # 中途終了データの変更
     #     class=03（変更）
