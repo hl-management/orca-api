@@ -16,7 +16,7 @@ module OrcaApi
                 <mservicecodelstreq type='record'>
                   <Service_Code_Kind type='string'>#{params[:service_code_kind]}</Service_Code_Kind>
                   <Target_Date type='string'>#{params[:target_date]}</Target_Date>
-                  <Kasan_Flag type='string'>0</Kasan_Flag>
+                  <Kasan_Flag type='string'>#{params[:flag]}</Kasan_Flag>
                   <Santei_Item_Information type='array'>
                     #{params[:santei_item_information] ? santei_items_xml(params) : ''}
                   </Santei_Item_Information>
