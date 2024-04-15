@@ -366,6 +366,7 @@ module OrcaApi # :nodoc:
       when :post
         request_class = Net::HTTP::Post
       end
+      byebug
 
       if format && !format.empty?
         params = params.merge(format: format.to_s)
@@ -426,7 +427,6 @@ module OrcaApi # :nodoc:
             return response.body
           end
         else
-          byebug
           raise HttpError, response
         end
       end
