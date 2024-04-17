@@ -4,7 +4,7 @@ module OrcaApi
     class QkanInformationChangeService < Service
       def create(params)
         orca_api.call(
-          "/service01/serviceinf",
+          "/service01/servicemod",
           format: 'xml',
           body: <<-XML
           <data>
