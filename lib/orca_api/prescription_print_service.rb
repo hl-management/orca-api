@@ -7,58 +7,45 @@ module OrcaApi
   class PrescriptionPrintService < Service
     def get_medical_fee(params)
       body = {
-        "Request_Number" => "01",
-        "Karte_Uid" => params["Karte_Uid"],
-        "Patient_ID" => params["Patient_ID"],
-        "Perform_Date" => params["Perform_Date"],
-        "Perform_Time" => params["Perform_Time"],
-        "Patient_Mode" => params["Patient_Mode"],
-        "Diagnosis_Information" => params["Diagnosis_Information"],
+        "medicalv3req1" => params
       }
-
-      Result.new(call_01(body))
+      Result.new(call_with_class_number("01", body, '/api21/medicalmodv31'))
     end
 
     def medical_treatment(params)
       body = {
-        "Request_Number" => "02",
-        "Karte_Uid" => params["Karte_Uid"],
-        "Patient_ID" => params["Patient_ID"],
-        "Perform_Date" => params["Perform_Date"],
-        "Perform_Time" => params["Perform_Time"],
-        "Patient_Mode" => params["Patient_Mode"],
-        "Diagnosis_Information" => params["Diagnosis_Information"],
+        "medicalv3req2" => params
       }
-
-      Result.new(medical_call(body))
+      Result.new(call_with_class_number("02", body, '/api21/medicalmodv32'))
     end
 
     def medical_check(params)
       body = {
-        "Request_Number" => "03",
-        "Karte_Uid" => params["Karte_Uid"],
-        "Patient_ID" => params["Patient_ID"],
-        "Perform_Date" => params["Perform_Date"],
-        "Perform_Time" => params["Perform_Time"],
-        "Patient_Mode" => params["Patient_Mode"],
-        "Diagnosis_Information" => params["Diagnosis_Information"],
+        "medicalv3req2" => params
       }
-
-      Result.new(medical_call(body))
+      Result.new(call_with_class_number("02", body, '/api21/medicalmodv32'))
     end
 
     private
 
-    def call_01(params)
-      orca_api.call("/api21/medicalmodv31", body: {
-                      "medicalv3req1" => params
-                    })
-    end
+    # def call_01(params)
+    #   orca_api.call("/api21/medicalmodv31", body: {
+    #                   "medicalv3req1" => params
+    #                 })
+    # end
 
-    def medical_call(params)
-      orca_api.call("/api21/medicalmodv32", body: {
-                      "medicalv3req2" => params,
-                    })
+    # def medical_call(params)
+    #   orca_api.call("/api21/medicalmodv32", body: {
+    #                   "medicalv3req2" => params,
+    #                 })
+    # end
+
+    def call_with_class_number(class_number, body, path)
+      orca_api.call(
+        path,
+        params: { class: class_number },
+        body: body
+      )
     end
   end
 end
