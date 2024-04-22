@@ -20,19 +20,31 @@ module OrcaApi
     end
 
     def medical_treatment(params)
-      params = params.merge({
-                              "Request_Number" => "02",
-                            })
+      body = {
+        "Request_Number" => "02",
+        "Karte_Uid" => params["Karte_Uid"],
+        "Patient_ID" => params["Patient_ID"],
+        "Perform_Date" => params["Perform_Date"],
+        "Perform_Time" => params["Perform_Time"],
+        "Patient_Mode" => params["Patient_Mode"],
+        "Diagnosis_Information" => params["Diagnosis_Information"],
+      }
 
-      Result.new(medical_call(params))
+      Result.new(medical_call(body))
     end
 
     def medical_check(params)
-      params = params.merge({
-                              "Request_Number" => "03",
-                            })
+      body = {
+        "Request_Number" => "03",
+        "Karte_Uid" => params["Karte_Uid"],
+        "Patient_ID" => params["Patient_ID"],
+        "Perform_Date" => params["Perform_Date"],
+        "Perform_Time" => params["Perform_Time"],
+        "Patient_Mode" => params["Patient_Mode"],
+        "Diagnosis_Information" => params["Diagnosis_Information"],
+      }
 
-      Result.new(medical_call(params))
+      Result.new(medical_call(body))
     end
 
     private
