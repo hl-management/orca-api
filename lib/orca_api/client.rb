@@ -414,6 +414,7 @@ module OrcaApi # :nodoc:
 
     def do_request(http, request, output_io)
       http.request(request) do |response|
+        byebug
         case response
         when Net::HTTPSuccess
           if output_io
