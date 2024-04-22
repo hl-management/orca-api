@@ -10,8 +10,7 @@ module OrcaApi
           <data>
             <servicemodreq type="record">
               <Request_Number type="string">#{params[:Request_Number]}</Request_Number>
-              <Patient_Number_Key type="string">orca</Patient_Number_Key>
-              <Patient_Number_Value type="string">#{params[:Patient_Number_Value]}</Patient_Number_Value>
+              <Patient_Id type="string">#{params[:Patient_Id]}</Patient_Id>
               <Service_YM type="string">#{params[:Service_YM]}</Service_YM>
               <Service_Code_Kind type="string">#{params[:Service_Code_Kind]}</Service_Code_Kind>
               <Service_Information type='array'>
