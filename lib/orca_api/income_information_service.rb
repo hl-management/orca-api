@@ -17,7 +17,6 @@ module OrcaApi
           "Patient_ID" => patient_id,
         }.merge(params)
       }
-      byebug
       Result.new(orca_api.call(api_path, body: body))
     end
   end
