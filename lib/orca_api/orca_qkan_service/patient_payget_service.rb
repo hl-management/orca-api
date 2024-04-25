@@ -7,13 +7,13 @@ module OrcaApi
           "/claim01/patientpayget",
           format: 'xml',
           body: <<-XML
-            <data>
-              <patientpaygetreq type="record">
-                <Claim_Date type="string">#{date}</Claim_Date>
-                <Result_Type type="string">#{result_type.upcase}</Result_Type>
-                <Provider_Id type="string">#{provider_id}</Provider_Id>
-              </patientpaygetreq>
-            </data>
+              <data>
+                <patientpaygetreq type='record'>
+                  <Provider_Id type='string'>#{provider_id}</Provider_Id>
+                  <Claim_Date type='string'>#{date}</Claim_Date>
+                  <Result_Type type='string'>#{result_type.upcase}</Result_Type>
+                </patientpaygetreq>
+              </data>
           XML
         )
       end
