@@ -143,7 +143,6 @@ module OrcaApi # :nodoc:
     #   そうでない場合、HTTPレスポンスのbodyをそのまま文字列として返す。
     def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil)
       path = "#{@path_prefix}#{path}"
-      byebug
       do_call make_request(http_method, path, params, body, format), output_io
     end
 
