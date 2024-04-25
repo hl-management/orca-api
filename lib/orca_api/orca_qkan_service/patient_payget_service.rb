@@ -7,13 +7,13 @@ module OrcaApi
           "/claim01/patientpayget",
           format: 'xml',
           body: <<-XML
-              <data>
-                <patientpaygetreq type="record">
-                <Provider_Id type="string">1312345678</Provider_Id>
-                <!-- 2_請求年月(デフォルト:現在日(年月)) -->
-                <Claim_Date type="string">2024-03</Claim_Date>
-                </patientpaygetreq>
-              </data>
+            <data>
+              <patientpaygetreq type="record">
+                <Claim_Date type="string">#{date}</Claim_Date>
+                <Result_Type type="string">#{result_type.upcase}</Result_Type>
+                <Provider_Id type="string">#{provider_id}</Provider_Id>
+              </patientpaygetreq>
+            </data>
           XML
         )
       end
