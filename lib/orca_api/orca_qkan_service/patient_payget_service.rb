@@ -8,10 +8,10 @@ module OrcaApi
           format: 'xml',
           body: <<-XML
               <data>
-                <patientpaygetreq type='record'>
-                  <Provider_Id type='string'>#{provider_id}</Provider_Id>
-                  <Claim_Date type='string'>#{date}</Claim_Date>
-                  <Result_Type type='string'>#{result_type.upcase}</Result_Type>
+                <patientpaygetreq type="record">
+                  <Provider_Id type="string">1312345678</Provider_Id>
+                  <Claim_Date type="string">2024-03</Claim_Date>
+                  <Result_Type type="string">XML</Result_Type>
                 </patientpaygetreq>
               </data>
           XML
