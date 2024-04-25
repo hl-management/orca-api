@@ -3,7 +3,7 @@ module OrcaApi
     # 利用者向け請求書取得API
     class PatientPaygetService < Service
       def get(provider_id, date, result_type = 'pdf')
-        a = orca_api.call(
+        orca_api.call(
           "/claim01/patientpayget",
           format: 'xml',
           body: <<-XML
@@ -16,8 +16,6 @@ module OrcaApi
               </data>
           XML
         )
-        byebug
-        a
       end
     end
   end
