@@ -142,8 +142,12 @@ module OrcaApi # :nodoc:
     #   output_ioが指定された場合、output_ioを返す。
     #   そうでない場合、HTTPレスポンスのbodyをそのまま文字列として返す。
     def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil)
-      path = "#{@path_prefix}#{path}"
-      do_call make_request(http_method, path, params, body, format), output_io
+      RedisMutex.with_lock(:orca_request, block: 10, sleep: 1) do
+        path = "#{@path_prefix}#{path}"
+        do_call make_request(http_method, path, params, body, format), output_io
+      end
+    rescue RedisMutex::LockError
+      retry
     end
 
     # @!group 高レベルインターフェース
