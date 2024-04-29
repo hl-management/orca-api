@@ -38,6 +38,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "rake", ">= 12.0"
   spec.add_development_dependency "redcarpet"
+  spec.add_development_dependency "redis"
+  spec.add_development_dependency "redis-mutex"
   spec.add_development_dependency "rspec", ">= 3.0"
   spec.add_development_dependency "rspec-its"
   spec.add_development_dependency "rspec_junit_formatter"
@@ -51,7 +53,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "timecop"
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "yard"
-  spec.add_development_dependency "redis"
-  spec.add_development_dependency "redis-mutex"
   spec.metadata['rubygems_mfa_required'] = 'true'
 end
