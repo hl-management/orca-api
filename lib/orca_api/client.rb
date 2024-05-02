@@ -2,12 +2,15 @@ require "uri"
 require "net/http"
 require "json"
 require "securerandom"
+require 'nokogiri'
 
 require_relative "result"
 require_relative "form_result"
 require_relative "binary_result"
 
 require_relative "error"
+require_relative 'logging_service'
+require_relative 'orca_type'
 
 module OrcaApi # :nodoc:
   # 日医レセAPIを呼び出すため低レベルインタフェースを提供するクラス
@@ -42,6 +45,7 @@ module OrcaApi # :nodoc:
     attr_writer :karte_uid # カルテUID
     attr_accessor :debug_output # デバッグに使う `IO` オブジェクト
     attr_reader :timeout
+    attr_accessor :status_code
     # rubocop:enable Style/AccessorGrouping
 
     def self.underscore(name)
@@ -107,6 +111,7 @@ module OrcaApi # :nodoc:
       end
       @reuse_http = 0
       self.timeout = options[:timeout]
+      @status_code = ''
     end
 
     # カルテUIDの取得
@@ -141,9 +146,13 @@ module OrcaApi # :nodoc:
     # @return [IO,String]
     #   output_ioが指定された場合、output_ioを返す。
     #   そうでない場合、HTTPレスポンスのbodyをそのまま文字列として返す。
-    def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil)
+    def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil, orca_type: :api)
       path = "#{@path_prefix}#{path}"
-      do_call make_request(http_method, path, params, body, format), output_io
+      http_request = make_request(http_method, path, params, body, format)
+      response = do_call http_request, output_io
+      log_request_and_response(http_request, response, orca_type)
+
+      response
     end
 
     # @!group 高レベルインターフェース
@@ -296,6 +305,49 @@ module OrcaApi # :nodoc:
 
     private
 
+    def log_request_and_response(request, response, orca_type)
+      log_name = OrcaType::ENUM[orca_type]
+      request_info = {
+        url: host + request.path,
+        method: request.method,
+        body: request.body.to_s
+      }
+      response_info = {
+        status: status_code,
+        body: response_body(response)
+      }
+      severity = orca_type == :qkan ? determine_severity_qkan(response) : determine_severity_api(response)
+      LoggingService.new('log/orca_client.log').log(log_name, request_info, response_info, severity)
+    rescue StandardError
+      # Ignored
+    end
+
+    def response_body(response)
+      return response.body if response.is_a?(Net::HTTPResponse)
+
+      response.to_s
+    end
+
+    def determine_severity_api(response)
+      result = Result.new(response)
+
+      return "ERROR" unless result.ok?
+      return "WARNING" if result.warning?
+
+      "INFO"
+    end
+
+    def determine_severity_qkan(response)
+      data = response.lines.reject { |line| line.include?('<?xml') }.join
+      doc = Nokogiri::XML(data)
+
+      api_result = doc.at('Api_Result').text
+
+      return "INFO" if api_result == '0000'
+
+      "ERROR"
+    end
+
     def extract_ssl_options(ssl)
       @ca_file = ssl[:ca_file]
       @ca_path = ssl[:ca_path]
@@ -414,6 +466,7 @@ module OrcaApi # :nodoc:
 
     def do_request(http, request, output_io)
       http.request(request) do |response|
+        @status_code = response&.code.to_s
         case response
         when Net::HTTPSuccess
           if output_io

@@ -1,3 +1,5 @@
+require_relative '../orca_type'
+
 module OrcaApi
   class OrcaQkanService < Service
     # 利用者向け請求書取得API
@@ -11,6 +13,7 @@ module OrcaApi
         orca_api.call(
           "/mst01/mservice_codelst",
           format: 'xml',
+          orca_type: :qkan,
           body: <<-XML
               <data>
                 <mservicecodelstreq type='record'>

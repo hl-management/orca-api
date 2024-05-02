@@ -27,6 +27,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanPatientService do # rubocop:disable
       }
       expected_path = "/patient01/patientadd"
       expected_format = 'xml'
+      expected_type = :qkan
       expected_body = <<-XML
           <data>
             <patientaddreq type="record">
@@ -42,7 +43,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanPatientService do # rubocop:disable
       XML
 
       expect(orca_api).to receive(:call).
-        with(expected_path, format: expected_format, body: match(/#{Regexp.escape(expected_body)}/))
+        with(expected_path, format: expected_format, body: match(/#{Regexp.escape(expected_body)}/), orca_type: expected_type)
 
       service.create(params)
     end

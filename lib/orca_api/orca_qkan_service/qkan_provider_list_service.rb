@@ -6,6 +6,7 @@ module OrcaApi
         orca_api.call(
           "/provider01/providerlst",
           format: 'xml',
+          orca_type: :qkan,
           body: <<-XML
               <data>
                 <providerlstreq type="record">
