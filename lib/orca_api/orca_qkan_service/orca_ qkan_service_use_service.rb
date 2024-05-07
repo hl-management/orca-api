@@ -1,8 +1,8 @@
 module OrcaApi
   class OrcaQkanService < Service
-    # 患者サービス API
-    class QkanInformationChangeService < Service
-      def create(params)
+    # 予定・実績情報変更API
+    class OrcaQkanServiceUseService < Service
+      def update(params)
         orca_api.call(
           "/service01/servicemod",
           format: 'xml',
