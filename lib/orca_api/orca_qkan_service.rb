@@ -17,7 +17,7 @@ module OrcaApi
   #   @see OrcaQkanService::QkanPatientService#list
   # @!method get_qkan_master_code_list_service
   #   @see OrcaQkanService::QkanMasterCodeListService#get
-  # @!method create_qkan_information_change_service
+  # @!method update_orca_qkan_service_use_service
   #   @see OrcaQkanService::OrcaQkanServiceUseService#update
 
   # @!endgroup
