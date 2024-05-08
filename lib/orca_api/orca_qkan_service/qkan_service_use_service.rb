@@ -3,6 +3,7 @@ module OrcaApi
     # 予定・実績情報変更API
     class QkanServiceUseService < Service
       def update(params)
+        byebug
         orca_api.call(
           "/service01/servicemod",
           format: 'xml',
