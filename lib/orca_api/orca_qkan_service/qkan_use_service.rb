@@ -1,7 +1,7 @@
 module OrcaApi
   class OrcaQkanService < Service
     # 予定・実績情報変更API
-    class QkanServiceUseService < Service
+    class QkanUseService < Service
 
       def update(params)
         orca_api.call(
