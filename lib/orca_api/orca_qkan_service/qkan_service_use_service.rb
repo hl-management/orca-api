@@ -31,6 +31,7 @@ module OrcaApi
               <Service_Code_Kind type="string">#{item[:Service_Code_Kind]}</Service_Code_Kind>
               <Provider_Id type="string">#{item[:Provider_Id]}</Provider_Id>
               <Service_Code type="string">#{item[:Service_Code]}</Service_Code>
+              <System_Service_Code type="string">#{item[:System_Service_Code]}</System_Service_Code>
               <Service_Days type="string">#{item[:Service_Days]}</Service_Days>
             </Service_Information_child>
           XML
