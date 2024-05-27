@@ -245,7 +245,7 @@ module OrcaApi # :nodoc:
     # @!endgroup
 
     service_class_names = %w(
-      AcceptanceServicer
+      AcceptanceService
       BlobService
       DepartmentService
       DiseaseService
