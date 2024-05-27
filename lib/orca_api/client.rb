@@ -2,15 +2,12 @@ require "uri"
 require "net/http"
 require "json"
 require "securerandom"
-require 'nokogiri'
 
 require_relative "result"
 require_relative "form_result"
 require_relative "binary_result"
 
 require_relative "error"
-require_relative 'logging_service'
-require_relative 'orca_type'
 
 module OrcaApi # :nodoc:
   # 日医レセAPIを呼び出すため低レベルインタフェースを提供するクラス
@@ -248,7 +245,7 @@ module OrcaApi # :nodoc:
     # @!endgroup
 
     service_class_names = %w(
-      AcceptanceService
+      AcceptanceServicer
       BlobService
       DepartmentService
       DiseaseService
