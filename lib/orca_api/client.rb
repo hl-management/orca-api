@@ -305,48 +305,48 @@ module OrcaApi # :nodoc:
 
     private
 
-    def log_request_and_response(request, response, orca_type)
-      log_name = OrcaType::ENUM[orca_type]
-      request_info = {
-        url: host + request.path,
-        method: request.method,
-        body: request.body.to_s
-      }
-      response_info = {
-        status: status_code,
-        body: response_body(response)
-      }
-      severity = orca_type == :qkan ? determine_severity_qkan(response) : determine_severity_api(response)
-      LoggingService.new('log/orca_client.log').log(log_name, request_info, response_info, severity)
-    rescue StandardError
-      # Ignored
-    end
+    # def log_request_and_response(request, response, orca_type)
+    #   log_name = OrcaType::ENUM[orca_type]
+    #   request_info = {
+    #     url: host + request.path,
+    #     method: request.method,
+    #     body: request.body.to_s
+    #   }
+    #   response_info = {
+    #     status: status_code,
+    #     body: response_body(response)
+    #   }
+    #   severity = orca_type == :qkan ? determine_severity_qkan(response) : determine_severity_api(response)
+    #   LoggingService.new('log/orca_client.log').log(log_name, request_info, response_info, severity)
+    # rescue StandardError
+    #   # Ignored
+    # end
 
-    def response_body(response)
-      return response.body if response.is_a?(Net::HTTPResponse)
+    # def response_body(response)
+    #   return response.body if response.is_a?(Net::HTTPResponse)
 
-      response.to_s
-    end
+    #   response.to_s
+    # end
 
-    def determine_severity_api(response)
-      result = Result.new(response)
+    # def determine_severity_api(response)
+    #   result = Result.new(response)
 
-      return "ERROR" unless result.ok?
-      return "WARNING" if result.warning?
+    #   return "ERROR" unless result.ok?
+    #   return "WARNING" if result.warning?
 
-      "INFO"
-    end
+    #   "INFO"
+    # end
 
-    def determine_severity_qkan(response)
-      data = response.lines.reject { |line| line.include?('<?xml') }.join
-      doc = Nokogiri::XML(data)
+    # def determine_severity_qkan(response)
+    #   data = response.lines.reject { |line| line.include?('<?xml') }.join
+    #   doc = Nokogiri::XML(data)
 
-      api_result = doc.at('Api_Result').text
+    #   api_result = doc.at('Api_Result').text
 
-      return "INFO" if api_result == '0000'
+    #   return "INFO" if api_result == '0000'
 
-      "ERROR"
-    end
+    #   "ERROR"
+    # end
 
     def extract_ssl_options(ssl)
       @ca_file = ssl[:ca_file]
