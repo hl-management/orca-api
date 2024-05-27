@@ -12,6 +12,9 @@ module OrcaApi
 
     def log(name, request, response, severity = 'UNKNOWN')
       log_string = generate_log_string(name, request, response, severity)
+      puts '----------> Log'
+      puts log_string
+      puts '----------> Endlog'
       write_log(log_string, severity)
     end
 
