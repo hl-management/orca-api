@@ -151,9 +151,8 @@ module OrcaApi # :nodoc:
       path = "#{@path_prefix}#{path}"
       http_request = make_request(http_method, path, params, body, format)
       response = do_call http_request, output_io
-      block_given? ? yield(response, http_request, orca_type) : response
-
-      response
+      puts @after_call.class
+      @after_call.call(http_request, response, orca_type)
     end
 
     # @!group 高レベルインターフェース
