@@ -8,6 +8,7 @@ require_relative "form_result"
 require_relative "binary_result"
 
 require_relative "error"
+require_relative 'orca_type'
 
 module OrcaApi # :nodoc:
   # 日医レセAPIを呼び出すため低レベルインタフェースを提供するクラス
