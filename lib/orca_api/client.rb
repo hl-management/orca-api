@@ -112,6 +112,7 @@ module OrcaApi # :nodoc:
       @reuse_http = 0
       self.timeout = options[:timeout]
       @status_code = ''
+      @after_call = options[:after_call]
     end
 
     # カルテUIDの取得
@@ -150,7 +151,7 @@ module OrcaApi # :nodoc:
       path = "#{@path_prefix}#{path}"
       http_request = make_request(http_method, path, params, body, format)
       response = do_call http_request, output_io
-      log_request_and_response(http_request, response, orca_type)
+      block_given? ? yield(response, http_request, orca_type) : response
 
       response
     end
