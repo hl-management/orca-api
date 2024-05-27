@@ -152,7 +152,7 @@ module OrcaApi # :nodoc:
       http_request = make_request(http_method, path, params, body, format)
       response = do_call http_request, output_io
       # puts @after_call.class
-      @after_call.call(http_request, response, orca_type, host, request, status_code)
+      @after_call.call(http_request, response, orca_type, host, status_code)
     end
 
     # @!group 高レベルインターフェース
