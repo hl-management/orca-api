@@ -19,7 +19,6 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanProviderListService do # rubocop:di
     it "calls the correct API endpoint with the correct parameters" do
       expected_path = "/provider01/providerlst"
       expected_format = 'xml'
-      expected_type = :qkan
       expected_body = <<-XML
               <data>
                 <providerlstreq type="record">
@@ -29,7 +28,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanProviderListService do # rubocop:di
       XML
 
       expect(orca_api).to receive(:call).
-        with(expected_path, format: expected_format, body: match(/#{Regexp.escape(expected_body)}/), orca_type: expected_type)
+        with(expected_path, format: expected_format, body: match(/#{Regexp.escape(expected_body)}/))
 
       service.get
     end

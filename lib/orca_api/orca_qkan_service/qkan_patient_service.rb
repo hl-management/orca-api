@@ -1,5 +1,3 @@
-require_relative '../orca_type'
-
 module OrcaApi
   class OrcaQkanService < Service
     # 患者サービス API
@@ -8,7 +6,6 @@ module OrcaApi
         orca_api.call(
           "/patient01/patientadd",
           format: 'xml',
-          orca_type: :qkan,
           body: <<-XML
           <data>
             <patientaddreq type="record">
