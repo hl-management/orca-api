@@ -42,6 +42,7 @@ module OrcaApi # :nodoc:
     attr_writer :karte_uid # カルテUID
     attr_accessor :debug_output # デバッグに使う `IO` オブジェクト
     attr_reader :timeout
+    attr_accessor :status_code
     # rubocop:enable Style/AccessorGrouping
 
     def self.underscore(name)
@@ -107,6 +108,8 @@ module OrcaApi # :nodoc:
       end
       @reuse_http = 0
       self.timeout = options[:timeout]
+      @status_code = ''
+      @after_call = options[:after_call]
     end
 
     # カルテUIDの取得
@@ -143,7 +146,11 @@ module OrcaApi # :nodoc:
     #   そうでない場合、HTTPレスポンスのbodyをそのまま文字列として返す。
     def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil)
       path = "#{@path_prefix}#{path}"
-      do_call make_request(http_method, path, params, body, format), output_io
+      http_request = make_request(http_method, path, params, body, format)
+      response = do_call http_request, output_io
+      @after_call&.call(http_request, response, host, status_code)
+
+      response
     end
 
     # @!group 高レベルインターフェース
@@ -414,6 +421,7 @@ module OrcaApi # :nodoc:
 
     def do_request(http, request, output_io)
       http.request(request) do |response|
+        @status_code = response&.code.to_s
         case response
         when Net::HTTPSuccess
           if output_io
