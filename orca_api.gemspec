@@ -35,7 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "guard-rubocop"
-  spec.add_development_dependency "nokogiri"
   spec.add_development_dependency "pry-byebug"
   spec.add_development_dependency "rake", ">= 12.0"
   spec.add_development_dependency "redcarpet"
