@@ -190,7 +190,7 @@ module OrcaApi
                          {  "Statistics_Parm_Value" => patient_id }
                        when '伝票発行日'
                          {  "Statistics_Parm_Value" => date }
-                       when '発行方法'
+                       when '発行方法', '発行区分', '集計区分', '印刷帳票', '患者設定参照'
                          { "Statistics_Parm_Value" => '1' }
                        end
         params = params.merge(static_value) if static_value
