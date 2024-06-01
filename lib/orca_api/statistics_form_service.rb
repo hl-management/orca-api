@@ -183,15 +183,15 @@ module OrcaApi
           "Statistics_Parm_Required_Item" => spi["Statistics_Parm_Required_Item"],
           "Statistics_Parm_Value" => spi["Statistics_Parm_Value"]
         }
-        static_value = case spi["Statistics_Parm_Class"]
-                       when 'YM'
+        static_value = case spi["Statistics_Parm_Label"]
+                       when '診療年月'
                          {  "Statistics_Parm_Value" => month }
-                       when 'PTNUM'
+                       when '患者番号'
                          {  "Statistics_Parm_Value" => patient_id }
-                       when 'YMD'
+                       when '伝票発行日'
                          {  "Statistics_Parm_Value" => date }
-                       when 'N1'
-                         { "Statistics_Parm_Value" => 0 }
+                       when '発行方法'
+                         { "Statistics_Parm_Value" => '1' }
                        end
         params = params.merge(static_value) if static_value
         params
