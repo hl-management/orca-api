@@ -143,8 +143,8 @@ module OrcaApi
 
     # @param create_result [CreateResult]
     # @return [CreatedResult] 処理確認のレスポンスクラス
-    def created(create_result)
-      statistics_processing_list_information = extract_statistics_processing_list_information create_result
+    def created(create_result, month, patient_id, date = nil)
+      statistics_processing_list_information = extract_statistics_processing_list_information(create_result, month, patient_id, date)
       CreatedResult.new(
         orca_api.call(
           "/orca51/statisticsformv3",
@@ -162,9 +162,9 @@ module OrcaApi
 
     private
 
-    def extract_statistics_processing_list_information(result)
+    def extract_statistics_processing_list_information(result, month, patient_id, date = nil)
       result['Statistics_Processing_List_Information'].map do |spl|
-        statistics_parameter_information = extract_statistics_parameter_information spl["Statistics_Parameter_Information"]
+        statistics_parameter_information = extract_statistics_parameter_information(spl["Statistics_Parameter_Information"], month, patient_id, date)
         {
           "Statistics_Program_No" => spl["Statistics_Program_No"],
           "Statistics_Program_Name" => spl["Statistics_Program_Name"],
@@ -174,15 +174,25 @@ module OrcaApi
       end
     end
 
-    def extract_statistics_parameter_information(array)
+    def extract_statistics_parameter_information(array, month, patient_id, date = nil)
       Array(array).map do |spi|
-        {
+        params = {
           "Statistics_Parm_No" => spi["Statistics_Parm_No"],
           "Statistics_Parm_Class" => spi["Statistics_Parm_Class"],
           "Statistics_Parm_Label" => spi["Statistics_Parm_Label"],
           "Statistics_Parm_Required_Item" => spi["Statistics_Parm_Required_Item"],
           "Statistics_Parm_Value" => spi["Statistics_Parm_Value"]
         }
+        static_value = case spi["Statistics_Parm_Class"]
+                       when 'YM'
+                         {  "Statistics_Parm_Value" => month }
+                       when 'PTNUM'
+                         {  "Statistics_Parm_Value" => patient_id }
+                       when 'YMD'
+                         {  "Statistics_Parm_Value" => date }
+                       end
+        params = params.merge(static_value) if static_value
+        params
       end
     end
   end
