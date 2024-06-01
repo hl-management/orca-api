@@ -111,7 +111,7 @@ module OrcaApi
     # @param create_result [CreateResult]
     # @return [CreatedResult] 処理確認のレスポンスクラス
     def created(create_result, month, patient_id, date = nil)
-      statistics_processing_list_information = extract_statistics_processing_list_information(create_result, month, patient_id, date)
+      params = extract_statistics_processing_list_information(create_result, month, patient_id, date)
       CreatedResult.new(
         orca_api.call(
           "/orca51/statisticsformv3",
@@ -120,7 +120,7 @@ module OrcaApi
               "Request_Number" => "01",
               "Karte_Uid" => create_result['Karte_Uid'],
               "Statistics_Mode" => create_result['Statistics_Mode'],
-              "Statistics_Processing_List_Information" => statistics_processing_list_information
+              "Statistics_Processing_List_Information" => params
             }
           }
         )
@@ -131,12 +131,12 @@ module OrcaApi
 
     def extract_statistics_processing_list_information(result, month, patient_id, date = nil)
       result['Statistics_Processing_List_Information'].map do |spl|
-        statistics_parameter_information = extract_statistics_parameter_information(spl["Statistics_Parameter_Information"], month, patient_id, date)
+        params = extract_statistics_parameter_information(spl["Statistics_Parameter_Information"], month, patient_id, date)
         {
           "Statistics_Program_No" => spl["Statistics_Program_No"],
           "Statistics_Program_Name" => spl["Statistics_Program_Name"],
           "Statistics_Program_Label" => spl["Statistics_Program_Label"],
-          "Statistics_Parameter_Information" => statistics_parameter_information
+          "Statistics_Parameter_Information" => params
         }
       end
     end
