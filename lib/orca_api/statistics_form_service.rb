@@ -150,7 +150,7 @@ module OrcaApi
           "/orca51/statisticsformv3",
           body: {
             statistics_formv3req: {
-              "Request_Number" => "02",
+              "Request_Number" => "01",
               "Karte_Uid" => create_result.karte_uid,
               "Orca_Uid" => create_result.orca_uid,
               "Statistics_Mode" => create_result.statistics_mode,
