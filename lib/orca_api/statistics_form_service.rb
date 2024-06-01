@@ -164,7 +164,7 @@ module OrcaApi
     private
 
     def extract_statistics_processing_list_information(result)
-      result.statistics_processing_list_information.map do |spl|
+      result['Statistics_Processing_List_Information'].map do |spl|
         statistics_parameter_information = extract_statistics_parameter_information spl["Statistics_Parameter_Information"]
         {
           "Statistics_Program_No" => spl["Statistics_Program_No"],
