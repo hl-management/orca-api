@@ -190,6 +190,8 @@ module OrcaApi
                          {  "Statistics_Parm_Value" => patient_id }
                        when 'YMD'
                          {  "Statistics_Parm_Value" => date }
+                       when 'N1'
+                         { "Statistics_Parm_Value" => 0 }
                        end
         params = params.merge(static_value) if static_value
         params
