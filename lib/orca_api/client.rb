@@ -148,6 +148,7 @@ module OrcaApi # :nodoc:
       path = "#{@path_prefix}#{path}"
       http_request = make_request(http_method, path, params, body, format)
       response = do_call http_request, output_io
+      byebug
       @after_call&.call(http_request, response, host, status_code)
 
       response
