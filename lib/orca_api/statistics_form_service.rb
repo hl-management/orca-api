@@ -112,6 +112,7 @@ module OrcaApi
     # @return [CreatedResult] 処理確認のレスポンスクラス
     def created(create_result, month, patient_id, date = nil)
       params = extract_statistics_processing_list_information(create_result, month, patient_id, date)
+      byebug
       CreatedResult.new(
         orca_api.call(
           "/orca51/statisticsformv3",
