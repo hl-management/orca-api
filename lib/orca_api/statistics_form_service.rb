@@ -148,7 +148,6 @@ module OrcaApi
           "Statistics_Parm_Class" => spi["Statistics_Parm_Class"],
           "Statistics_Parm_Label" => spi["Statistics_Parm_Label"],
           "Statistics_Parm_Required_Item" => spi["Statistics_Parm_Required_Item"],
-          "Statistics_Parm_Value" => spi["Statistics_Parm_Value"]
         }
         static_value = case spi["Statistics_Parm_Label"]
                        when '診療年月'
