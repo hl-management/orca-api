@@ -110,8 +110,8 @@ module OrcaApi
 
     # @param create_result [CreateResult]
     # @return [CreatedResult] 処理確認のレスポンスクラス
-    def created(create_result, month, date = nil)
-      params = extract_statistics_processing_list_information(create_result, month, date)
+    def created(create_result, month, patient_id, date = nil)
+      params = extract_statistics_processing_list_information(create_result, month, patient_id, date)
       CreatedResult.new(
         orca_api.call(
           "/orca51/statisticsformv3",
@@ -129,9 +129,9 @@ module OrcaApi
 
     private
 
-    def extract_statistics_processing_list_information(result, month, date = nil)
+    def extract_statistics_processing_list_information(result, month, patient_id, date = nil)
       result['Statistics_Processing_List_Information'].map do |spl|
-        params = extract_statistics_parameter_information(spl["Statistics_Parameter_Information"], month, date)
+        params = extract_statistics_parameter_information(spl["Statistics_Parameter_Information"], month, patient_id, date)
         {
           "Statistics_Program_No" => spl["Statistics_Program_No"],
           "Statistics_Program_Name" => spl["Statistics_Program_Name"],
@@ -141,7 +141,7 @@ module OrcaApi
       end
     end
 
-    def extract_statistics_parameter_information(array, month, date = nil)
+    def extract_statistics_parameter_information(array, month, patient_id, date = nil)
       Array(array).map do |spi|
         params = {
           "Statistics_Parm_No" => spi["Statistics_Parm_No"],
@@ -152,12 +152,12 @@ module OrcaApi
         static_value = case spi["Statistics_Parm_Label"]
                        when '診療年月'
                          {  "Statistics_Parm_Value" => month }
+                       when '患者番号'
+                         {  "Statistics_Parm_Value" => patient_id }
                        when '伝票発行日'
                          {  "Statistics_Parm_Value" => date }
                        when '発行方法', '発行区分', '集計区分', '印刷帳票', '患者設定参照', '管理番号１'
                          { "Statistics_Parm_Value" => '1' }
-                       else
-                         { "Statistics_Parm_Value" => '' }
                        end
         params = params.merge(static_value) if static_value
         params
