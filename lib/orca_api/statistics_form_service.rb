@@ -147,7 +147,7 @@ module OrcaApi
         params = {
           "Statistics_Parm_No" => spi["Statistics_Parm_No"],
           "Statistics_Parm_Class" => spi["Statistics_Parm_Class"],
-          "Statistics_Parm_Label" => spi["Statistics_Parm_Label"],
+          "Statistics_Parm_Label" => '',
           "Statistics_Parm_Required_Item" => spi["Statistics_Parm_Required_Item"],
         }
         static_value = case spi["Statistics_Parm_Label"]
@@ -159,6 +159,8 @@ module OrcaApi
                          {  "Statistics_Parm_Value" => date }
                        when '発行方法', '発行区分', '集計区分', '印刷帳票', '患者設定参照', '管理番号１'
                          { "Statistics_Parm_Value" => '1' }
+                       else
+                         { "Statistics_Parm_Value" => '' }
                        end
         params = params.merge(static_value) if static_value
         params
