@@ -137,6 +137,22 @@ module OrcaApi
                   "Statistics_Parm_No" => "04",
                   "Statistics_Parm_Class" => "YMD",
                   "Statistics_Parm_Value" => date,
+                }, {
+                  "Statistics_Parm_No" => "05",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
+                }, {
+                  "Statistics_Parm_No" => "08",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
+                }, {
+                  "Statistics_Parm_No" => "09",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
+                }, {
+                  "Statistics_Parm_No" => "10",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
                 }]
               }]
             }
