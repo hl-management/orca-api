@@ -110,7 +110,7 @@ module OrcaApi
 
     # @param list_result [ListResult]
     # @return [CreateResult] 処理実施のレスポンスクラス
-    def create(list_result, month, patient_id, date = nil)
+    def create(list_result, month, patient_id, date = nil) # rubocop:disable Metrics/MethodLength
       CreateResult.new(
         orca_api.call(
           "/orca51/statisticsformv3",
@@ -126,6 +126,10 @@ module OrcaApi
                   "Statistics_Parm_Class" => "YM",
                   "Statistics_Parm_Value" => month,
                 }, {
+                  "Statistics_Parm_No" => "02",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '4',
+                }, {
                   "Statistics_Parm_No" => "03",
                   "Statistics_Parm_Class" => "PTNUM",
                   "Statistics_Parm_Value" => patient_id,
@@ -133,6 +137,22 @@ module OrcaApi
                   "Statistics_Parm_No" => "04",
                   "Statistics_Parm_Class" => "YMD",
                   "Statistics_Parm_Value" => date,
+                }, {
+                  "Statistics_Parm_No" => "05",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
+                }, {
+                  "Statistics_Parm_No" => "08",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
+                }, {
+                  "Statistics_Parm_No" => "09",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
+                }, {
+                  "Statistics_Parm_No" => "10",
+                  "Statistics_Parm_Class" => "N1",
+                  "Statistics_Parm_Value" => '0',
                 }]
               }]
             }
