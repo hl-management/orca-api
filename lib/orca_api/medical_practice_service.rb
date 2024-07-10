@@ -628,6 +628,7 @@ module OrcaApi
       end
       res
     ensure
+      byebug
       unlock_for_update(locked_result)
     end
 
