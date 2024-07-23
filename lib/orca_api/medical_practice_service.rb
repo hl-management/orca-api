@@ -631,6 +631,10 @@ module OrcaApi
       unlock_for_update(locked_result)
     end
 
+    def unlock(locked_result)
+      unlock_for_update(locked_result)
+    end
+
     # 診療行為の削除
     #
     # @param (see #get)
