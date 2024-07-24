@@ -631,10 +631,6 @@ module OrcaApi
       unlock_for_update(locked_result)
     end
 
-    def get_info_medical_practice(params)
-      call_01_for_update(params, "Modify")
-    end
-
     def unlock(locked_result)
       unlock_for_update(locked_result)
     end
