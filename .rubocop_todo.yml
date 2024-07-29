@@ -83,7 +83,17 @@ RSpec/ExpectInHook:
 # Offense count: 2
 # Configuration parameters: Include, CustomTransform, IgnoreMethods, SpecSuffixOnly.
 # Include: **/*_spec*rb*, **/spec/**/*
-RSpec/FilePath:
+# RSpec/FilePath:
+#   Exclude:
+#     - 'spec/orca_api/medication_master_list_spec.rb'
+#     - 'spec/orca_api/perscription_print_service_spec.rb'
+
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - 'spec/orca_api/medication_master_list_spec.rb'
+    - 'spec/orca_api/perscription_print_service_spec.rb'
+
+RSpec/SpecFilePathSuffix:
   Exclude:
     - 'spec/orca_api/medication_master_list_spec.rb'
     - 'spec/orca_api/perscription_print_service_spec.rb'
