@@ -35,9 +35,8 @@ RSpec.describe OrcaApi::MasterExportService, :orca_api_mock do
 
     context "success" do
       let(:response_json) { load_orca_api_response("orca51_masterexportv3_result_01.json") }
-      let(:args) do
-        its("ok?") { is_expected.to be(true) }
-      end
+      let(:args) { {} }
+      its('ok?') { is_expected.to be(true) }
     end
   end
 end

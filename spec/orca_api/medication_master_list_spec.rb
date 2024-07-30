@@ -17,9 +17,9 @@ RSpec.describe OrcaApi::MedicationMasterListService, :orca_api_mock do
 
     context "正常系" do
       let(:response_json) { load_orca_api_response("orca51_medicationmasterlstv3_01.json") }
-      let(:args) do
-        its("ok?") { is_expected.to be(true) }
-      end
+      let(:args) { {} }
+
+      its("ok?") { is_expected.to be(true) }
     end
 
     context "異常系" do
