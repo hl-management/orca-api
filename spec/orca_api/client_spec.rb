@@ -208,7 +208,7 @@ RSpec.describe OrcaApi::Client do
       before do
         query = URI.encode_www_form(params.merge(format: "json"))
         stub_request(http_method, URI.join(request_url, path, "?#{query}")).
-          with(body: body ? body.to_json : nil).
+          with(body: body&.to_json).
           to_return(body: result)
       end
 
