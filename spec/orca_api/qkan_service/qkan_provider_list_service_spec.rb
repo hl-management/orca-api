@@ -2,7 +2,7 @@
 require "spec_helper"
 require "orca_api/orca_qkan_service/qkan_provider_list_service"
 
-RSpec.describe OrcaApi::OrcaQkanService::QkanProviderListService do # rubocop:disable RSpec/SpecFilePathFormat, RSpec/FilePath
+RSpec.describe OrcaApi::OrcaQkanService::QkanProviderListService do # rubocop:disable RSpec/SpecFilePathFormat
   orca_model = 'OrcaApi::Api'
   let(:orca_api) { instance_double(orca_model, call: api_response) }
   let(:service) { described_class.new(orca_api) }
