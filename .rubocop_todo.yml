@@ -12,14 +12,14 @@
 # Include: **/*.gemspec, **/Gemfile, **/gems.rb
 Gemspec/DevelopmentDependencies:
   Exclude:
-    - 'orca_api.gemspec'
+    - "orca_api.gemspec"
 
 # Offense count: 1
 # Configuration parameters: Severity, Include.
 # Include: **/*.gemspec
 Gemspec/RequiredRubyVersion:
   Exclude:
-    - 'orca_api.gemspec'
+    - "orca_api.gemspec"
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
@@ -32,12 +32,12 @@ Layout/LineLength:
 # Configuration parameters: IgnoreLiteralBranches, IgnoreConstantBranches.
 Lint/DuplicateBranch:
   Exclude:
-    - 'spec/orca_api/income_service_spec.rb'
+    - "spec/orca_api/income_service_spec.rb"
 
 # Offense count: 2
 Lint/DuplicateHashKey:
   Exclude:
-    - 'spec/orca_api/perscription_print_service_spec.rb'
+    - "spec/orca_api/perscription_print_service_spec.rb"
 
 # Offense count: 1
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns, inherit_mode.
@@ -74,7 +74,7 @@ RSpec/ExampleLength:
 # DisallowedExamples: works
 RSpec/ExampleWording:
   Exclude:
-    - 'spec/orca_api/patient_service/health_public_insurance_spec.rb'
+    - "spec/orca_api/patient_service/health_public_insurance_spec.rb"
 
 # Offense count: 162
 RSpec/ExpectInHook:
@@ -85,8 +85,8 @@ RSpec/ExpectInHook:
 # Include: **/*_spec*rb*, **/spec/**/*
 RSpec/ExpectInLet:
   Exclude:
-    - 'spec/orca_api/medication_master_list_spec.rb'
-    - 'spec/orca_api/master_export_service_spec.rb'
+    - "spec/orca_api/medication_master_list_spec.rb"
+    - "spec/orca_api/master_export_service_spec.rb"
 
 # Offense count: 105
 # Configuration parameters: EnforcedStyle.
@@ -108,13 +108,13 @@ RSpec/MultipleMemoizedHelpers:
 # SupportedStyles: always, named_only
 RSpec/NamedSubject:
   Exclude:
-    - 'spec/orca_api/client_spec.rb'
-    - 'spec/orca_api/form_result_spec.rb'
-    - 'spec/orca_api/patient_service/accident_insurance_spec.rb'
-    - 'spec/orca_api/patient_service/income_spec.rb'
-    - 'spec/orca_api/patient_service_spec.rb'
-    - 'spec/orca_api/print_service_spec.rb'
-    - 'spec/orca_api/result_spec.rb'
+    - "spec/orca_api/client_spec.rb"
+    - "spec/orca_api/form_result_spec.rb"
+    - "spec/orca_api/patient_service/accident_insurance_spec.rb"
+    - "spec/orca_api/patient_service/income_spec.rb"
+    - "spec/orca_api/patient_service_spec.rb"
+    - "spec/orca_api/print_service_spec.rb"
+    - "spec/orca_api/result_spec.rb"
 
 # Offense count: 104
 # Configuration parameters: AllowedGroups.
@@ -126,45 +126,45 @@ RSpec/NestedGroups:
 # Include: **/*_spec.rb
 RSpec/SpecFilePathFormat:
   Exclude:
-    - '**/spec/routing/**/*'
-    - 'spec/orca_api/medication_master_list_spec.rb'
-    - 'spec/orca_api/perscription_print_service_spec.rb'
+    - "**/spec/routing/**/*"
+    - "spec/orca_api/medication_master_list_spec.rb"
+    - "spec/orca_api/perscription_print_service_spec.rb"
 
 # Offense count: 5
 RSpec/StubbedMock:
   Exclude:
-    - 'spec/orca_api/user_service_spec.rb'
+    - "spec/orca_api/user_service_spec.rb"
 
 # Offense count: 11
 # Configuration parameters: IgnoreNameless, IgnoreSymbolicNames.
 RSpec/VerifiedDoubles:
   Exclude:
-    - 'spec/orca_api/blob_service_spec.rb'
-    - 'spec/orca_api/client_spec.rb'
-    - 'spec/orca_api/lock_service_spec.rb'
-    - 'spec/orca_api/patient_service_spec.rb'
-    - 'spec/orca_api/shared_examples.rb'
+    - "spec/orca_api/blob_service_spec.rb"
+    - "spec/orca_api/client_spec.rb"
+    - "spec/orca_api/lock_service_spec.rb"
+    - "spec/orca_api/patient_service_spec.rb"
+    - "spec/orca_api/shared_examples.rb"
 
 # Offense count: 9
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/orca_api/hospital_service.rb'
-    - 'lib/orca_api/income_information_service.rb'
-    - 'lib/orca_api/master_export_service.rb'
-    - 'lib/orca_api/orca_qkan_service.rb'
-    - 'lib/orca_api/orca_qkan_service/patient_payget_service.rb'
-    - 'lib/orca_api/patient_service/all_health_insurances.rb'
-    - 'lib/orca_api/patient_service/patient_mod_service.rb'
-    - 'lib/orca_api/patient_service/patient_search_service.rb'
-    - 'lib/orca_api/prescription_print_service.rb'
+    - "spec/**/*"
+    - "test/**/*"
+    - "lib/orca_api/hospital_service.rb"
+    - "lib/orca_api/income_information_service.rb"
+    - "lib/orca_api/master_export_service.rb"
+    - "lib/orca_api/orca_qkan_service.rb"
+    - "lib/orca_api/orca_qkan_service/patient_payget_service.rb"
+    - "lib/orca_api/patient_service/all_health_insurances.rb"
+    - "lib/orca_api/patient_service/patient_mod_service.rb"
+    - "lib/orca_api/patient_service/patient_search_service.rb"
+    - "lib/orca_api/prescription_print_service.rb"
 
 # Offense count: 2
 # Configuration parameters: AllowedMethods.
 # AllowedMethods: respond_to_missing?
 Style/OptionalBooleanParameter:
   Exclude:
-    - 'lib/orca_api/print_service.rb'
-    - 'spec/spec_helper.rb'
+    - "lib/orca_api/print_service.rb"
+    - "spec/spec_helper.rb"
