@@ -242,6 +242,9 @@ module OrcaApi # :nodoc:
     # @!method new_orca_qkan_service
     # @return [OrcaQkanService] OrcaQkanServiceインスタンス
 
+    # @!method new_invoice_receipt_service
+    # @return [InvoiceReceiptService] InvoiceReceiptServiceインスタンス
+
     # @!endgroup
 
     service_class_names = %w(
@@ -274,6 +277,7 @@ module OrcaApi # :nodoc:
       IncomeInformationService
       StatementService
       OrcaQkanService
+      InvoiceReceiptService
     )
     service_class_names.each do |name|
       s = underscore(name)
@@ -330,7 +334,7 @@ module OrcaApi # :nodoc:
     def extract_timeout_options(timeout)
       return {} unless timeout
 
-      timeout.select { |key, _| ACCEPT_TIMEOUT_OPTIONS.include? key }
+      timeout.slice(*ACCEPT_TIMEOUT_OPTIONS)
     end
 
     def new_http

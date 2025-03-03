@@ -33,7 +33,7 @@ module OrcaApi
       def update(id, args)
         super(
           id,
-          args.select { |key, _| OPTION_KEYS.include? key }
+          args.slice(*OPTION_KEYS)
         )
       end
 

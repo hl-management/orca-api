@@ -106,11 +106,7 @@ module OrcaApi
     end
 
     def respond_to_missing?(symbol, arg)
-      if @attr_names.key?(symbol)
-        true
-      else
-        super
-      end
+      @attr_names.key?(symbol) || super
     end
   end
 end

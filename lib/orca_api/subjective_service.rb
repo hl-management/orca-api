@@ -23,7 +23,7 @@ module OrcaApi
     module HashSlice
       refine Hash do
         def slice(*keys)
-          select { |key, _| keys.include? key }
+          hash.slice(*keys)
         end
       end
     end

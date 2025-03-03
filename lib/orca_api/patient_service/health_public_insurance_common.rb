@@ -25,9 +25,7 @@ module OrcaApi
         )
 
         def health_public_insurance
-          body.select { |k, _|
-            KEYS.include?(k)
-          } || {}
+          body.slice(*KEYS) || {}
         end
       end
 
