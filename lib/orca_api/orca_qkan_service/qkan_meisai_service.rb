@@ -1,8 +1,8 @@
 module OrcaApi
   class OrcaQkanService < Service
     # 介護給付費明細書一覧取得API
-    class PatientMeisailstService < Service
-      def get(provider_id, date)
+    class QkanMeisaiService < Service
+      def list(provider_id, date)
         orca_api.call(
           "/claim01/meisailst",
           format: 'xml',
