@@ -278,6 +278,7 @@ module OrcaApi # :nodoc:
       StatementService
       OrcaQkanService
       InvoiceReceiptService
+      GenericDrugService
     )
     service_class_names.each do |name|
       s = underscore(name)
