@@ -245,6 +245,9 @@ module OrcaApi # :nodoc:
     # @!method new_invoice_receipt_service
     # @return [InvoiceReceiptService] InvoiceReceiptServiceインスタンス
 
+    # @!method new_generic_drug_service
+    # @return [GenericDrugService] GenericDrugServiceインスタンス
+
     # @!endgroup
 
     service_class_names = %w(
