@@ -3,6 +3,7 @@
 require_relative 'service'
 
 module OrcaApi
+  # https://apic.orcamo.co.jp/api-council/members/standards/?haori_master_export
   class GenericDrugService < Service
     def list(params)
       api_path = "/orca51/masterexportv3"
