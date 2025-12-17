@@ -18,7 +18,7 @@ RSpec.describe OrcaApi::Client do
         end
       end
 
-      include_examples "認証情報が正しいこと"
+      it_behaves_like "認証情報が正しいこと"
 
       describe "optionsよりもuriのほうが優先順位が高い" do
         let(:options) {
@@ -28,7 +28,7 @@ RSpec.describe OrcaApi::Client do
           }
         }
 
-        include_examples "認証情報が正しいこと"
+        it_behaves_like "認証情報が正しいこと"
       end
     end
 
@@ -247,7 +247,7 @@ RSpec.describe OrcaApi::Client do
       let(:uri) { "http://ormaster:ormaster_password@example.com:18000" }
       let(:options) { {} }
 
-      include_examples "日レセAPIを呼び出せること"
+      it_behaves_like "日レセAPIを呼び出せること"
     end
 
     context "HTTPS + クライアント証明書 + BASIC認証" do
@@ -262,7 +262,7 @@ RSpec.describe OrcaApi::Client do
         }
       }
 
-      include_examples "日レセAPIを呼び出せること"
+      it_behaves_like "日レセAPIを呼び出せること"
     end
 
     context "bodyにハッシュ以外のオブジェクトを指定する" do
@@ -329,7 +329,7 @@ RSpec.describe OrcaApi::Client do
         }
       }
 
-      include_examples "日レセAPIを呼び出せること"
+      it_behaves_like "日レセAPIを呼び出せること"
     end
   end
 

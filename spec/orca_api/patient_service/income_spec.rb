@@ -124,7 +124,9 @@ RSpec.describe OrcaApi::PatientService::Income, :orca_api_mock do
         its("ok?") { is_expected.to be true }
         its(:patient_information) { is_expected.to eq(parse_json(updated_response_json).first[1]["Patient_Information"]) }
 
+        # rubocop:disable RSpec/LeakyLocalVariable
         attr_name = "Income_Information"
+        # rubocop:enable RSpec/LeakyLocalVariable
         describe "[#{attr_name.inspect}]" do
           subject { super()[attr_name] }
 
@@ -154,7 +156,7 @@ RSpec.describe OrcaApi::PatientService::Income, :orca_api_mock do
           }
         }
 
-        include_examples "結果が正しいこと"
+        it_behaves_like "結果が正しいこと"
       end
 
       context "削除する" do
@@ -169,7 +171,7 @@ RSpec.describe OrcaApi::PatientService::Income, :orca_api_mock do
           }
         }
 
-        include_examples "結果が正しいこと"
+        it_behaves_like "結果が正しいこと"
       end
     end
 

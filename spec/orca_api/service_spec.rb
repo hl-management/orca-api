@@ -6,6 +6,7 @@ RSpec.describe OrcaApi::Service do
     let(:orca_api) { OrcaApi::Client.new "http://example.com" }
     let(:service_class) do
       Class.new(OrcaApi::Service) do
+        # rubocop:disable Naming/PredicateMethod
         def call_01
           orca_api.reusing_session?
         end
@@ -13,6 +14,7 @@ RSpec.describe OrcaApi::Service do
         def call_02
           orca_api.reusing_session?
         end
+        # rubocop:enable Naming/PredicateMethod
       end
     end
 

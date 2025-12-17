@@ -110,6 +110,7 @@ module OrcaApi
         )
       end
 
+      # rubocop:disable Metrics/AbcSize
       def build_nintei_history_xml(nintei_history)
         h = nintei_history || {}
         fields = [
@@ -141,6 +142,7 @@ module OrcaApi
                 </PatientNinteiHistory_Information_child>
         XML
       end
+      # rubocop:enable Metrics/AbcSize
 
       def xml_field(name, type, value)
         return nil if value.nil? || value.to_s.empty?

@@ -253,7 +253,7 @@ RSpec.describe OrcaApi::PatientService::AccidentInsurance, :orca_api_mock do
           }
         }
 
-        include_examples "結果が正しいこと"
+        it_behaves_like "結果が正しいこと"
       end
 
       context "患者労災・自賠責保険を更新する(Modify)" do
@@ -303,7 +303,7 @@ RSpec.describe OrcaApi::PatientService::AccidentInsurance, :orca_api_mock do
           }
         }
 
-        include_examples "結果が正しいこと"
+        it_behaves_like "結果が正しいこと"
       end
 
       context "患者労災・自賠責保険を削除する(Delete)" do
@@ -353,7 +353,7 @@ RSpec.describe OrcaApi::PatientService::AccidentInsurance, :orca_api_mock do
           }
         }
 
-        include_examples "結果が正しいこと"
+        it_behaves_like "結果が正しいこと"
       end
     end
 

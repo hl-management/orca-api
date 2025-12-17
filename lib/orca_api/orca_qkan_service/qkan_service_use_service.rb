@@ -21,7 +21,7 @@ module OrcaApi
               <Service_YM type="string">#{params[:Service_YM]}</Service_YM>
               <Service_Code_Kind type="string">#{params[:Service_Code_Kind]}</Service_Code_Kind>
               <Service_Information type="array">
-                #{params[:Service_Information].present? ? build_service_information_xml(params[:Service_Information]) : ''}
+                #{build_service_information_xml(params[:Service_Information]) if params[:Service_Information].present?}
               </Service_Information>
             </servicemodreq>
           </data>
@@ -38,7 +38,7 @@ module OrcaApi
               <Provider_Id type="string">#{item[:Provider_Id]}</Provider_Id>
               <Service_Code type="string">#{item[:Service_Code]}</Service_Code>
               <Service_Days type="string">#{item[:Service_Days]}</Service_Days>
-              #{kasan_information_xml ? "<Kasan_Information type=\"array\">\n#{kasan_information_xml}\n</Kasan_Information>" : ''}
+              #{"<Kasan_Information type=\"array\">\n#{kasan_information_xml}\n</Kasan_Information>" if kasan_information_xml}
             </Service_Information_child>
           XML
         end.join("\n")

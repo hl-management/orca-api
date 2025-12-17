@@ -54,13 +54,13 @@ RSpec.describe OrcaApi::PrintService, :orca_api_mock do
       context "正常系" do
         let(:response_json) { load_orca_api_response("#{json_prefix}.json") }
 
-        include_examples "結果が正しいこと"
+        it_behaves_like "結果が正しいこと"
 
         context "push通知を有効にする" do
           let(:push_notification) { true }
           let(:expect_request_number) { "01" }
 
-          include_examples "結果が正しいこと"
+          it_behaves_like "結果が正しいこと"
         end
       end
 
@@ -83,7 +83,7 @@ RSpec.describe OrcaApi::PrintService, :orca_api_mock do
 
       let(:json_prefix) { "api01rv2_prescriptionv2" }
 
-      include_examples "帳票印刷リクエストを送れること"
+      it_behaves_like "帳票印刷リクエストを送れること"
     end
 
     describe "お薬手帳" do
@@ -94,7 +94,7 @@ RSpec.describe OrcaApi::PrintService, :orca_api_mock do
 
       let(:json_prefix) { "api01rv2_medicinenotebookv2" }
 
-      include_examples "帳票印刷リクエストを送れること"
+      it_behaves_like "帳票印刷リクエストを送れること"
     end
 
     context "対応していない帳票種別を指定する" do
