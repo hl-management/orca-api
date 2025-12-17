@@ -11,6 +11,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanPatientService do # rubocop:disable
       {
         success: true,
         response: load_orca_api_response("patient01_patientadd.json")
+        # Add other necessary keys based on the actual response structure
       }
     end
 
