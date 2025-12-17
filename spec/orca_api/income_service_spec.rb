@@ -200,7 +200,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
           let(:start_month) { "2012-01" }
           let(:response_json) { load_orca_api_response("orca23_incomev3_01_01_information_class_1.json") }
 
-          it_behaves_like "結果が正しいこと"
+          include_examples "結果が正しいこと"
         end
 
         context "Information_Class = 2:指定した期間内の未収（過入）金のある請求一覧" do
@@ -208,7 +208,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
           let(:start_month) { "2012-01" }
           let(:response_json) { load_orca_api_response("orca23_incomev3_01_01_information_class_2.json") }
 
-          it_behaves_like "結果が正しいこと"
+          include_examples "結果が正しいこと"
         end
 
         context "Information_Class = 3:指定した期間内に入返金が行われた請求一覧" do
@@ -216,7 +216,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
           let(:start_date) { "2012-01-01" }
           let(:response_json) { load_orca_api_response("orca23_incomev3_01_01_information_class_3.json") }
 
-          it_behaves_like "結果が正しいこと"
+          include_examples "結果が正しいこと"
         end
       end
 
@@ -309,7 +309,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         end
       end
 
-      it_behaves_like "他端末使用中に期待通りに動作すること"
+      include_examples "他端末使用中に期待通りに動作すること"
     end
 
     shared_context "正常な日レセAPI呼び出し" do
@@ -412,7 +412,6 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
@@ -424,8 +423,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         State_Name
         Income_History
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names do
+      include_examples "更新処理が期待通りに動作すること", json_names do
         let(:ic_money) { "1000" }
       end
 
@@ -478,7 +476,6 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
@@ -490,8 +487,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         State_Name
         Income_History
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#cancel" do
@@ -511,7 +507,6 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
@@ -523,8 +518,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         State_Name
         Income_History
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#pay_back" do
@@ -542,7 +536,6 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
@@ -554,8 +547,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         State_Name
         Income_History
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#recalculate" do
@@ -573,7 +565,6 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
@@ -585,8 +576,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         State_Name
         Income_History
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#bulk_recalculate" do
@@ -603,13 +593,11 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         Income_Information
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#bulk_update" do
@@ -645,13 +633,11 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         Income_Information
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#destroy" do
@@ -668,7 +654,6 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
@@ -680,8 +665,7 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         State_Name
         Income_History
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
 
     describe "#reprint" do
@@ -701,15 +685,13 @@ RSpec.describe OrcaApi::IncomeService, :orca_api_mock do
         }
       }
 
-      # rubocop:disable RSpec/LeakyLocalVariable
       json_names = %w(
         Patient_ID
         InOut
         Invoice_Number
         Print_Information
       )
-      # rubocop:enable RSpec/LeakyLocalVariable
-      it_behaves_like "更新処理が期待通りに動作すること", json_names
+      include_examples "更新処理が期待通りに動作すること", json_names
     end
   end
 end

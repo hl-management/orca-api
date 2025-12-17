@@ -28,7 +28,7 @@ RSpec.describe OrcaApi::InsuranceService, :orca_api_mock do
 
       let(:base_date) { "" }
 
-      it_behaves_like "結果が正しいこと"
+      include_examples "結果が正しいこと"
     end
 
     context "base_date引数を指定する" do
@@ -36,7 +36,7 @@ RSpec.describe OrcaApi::InsuranceService, :orca_api_mock do
 
       let(:base_date) { "2017-07-25" }
 
-      it_behaves_like "結果が正しいこと"
+      include_examples "結果が正しいこと"
     end
   end
 end

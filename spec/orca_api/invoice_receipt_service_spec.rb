@@ -2,9 +2,7 @@ require "spec_helper"
 require "orca_api/invoice_receipt_service"
 
 RSpec.describe OrcaApi::InvoiceReceiptService do
-  # rubocop:disable RSpec/LeakyLocalVariable
   orca_model = 'OrcaApi::Api'
-  # rubocop:enable RSpec/LeakyLocalVariable
   let(:orca_api) { instance_double(orca_model, call: response_body) }
   let(:service) { described_class.new(orca_api) }
   let(:invoice_number) { '123456' }

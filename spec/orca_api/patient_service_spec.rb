@@ -448,7 +448,7 @@ RSpec.describe OrcaApi::PatientService, :orca_api_mock do
           }
         end
 
-        it_behaves_like "ok"
+        include_examples "ok"
       end
 
       context "受診のある患者" do
@@ -519,7 +519,7 @@ RSpec.describe OrcaApi::PatientService, :orca_api_mock do
             }
           end
 
-          it_behaves_like "ok"
+          include_examples "ok"
         end
       end
     end
@@ -591,10 +591,8 @@ RSpec.describe OrcaApi::PatientService, :orca_api_mock do
     PiMoney
     PiEtcMoney
   ).each do |class_name|
-    # rubocop:disable RSpec/LeakyLocalVariable
     method_suffix = OrcaApi::Client.underscore(class_name)
     klass = described_class.const_get(class_name)
-    # rubocop:enable RSpec/LeakyLocalVariable
     method_names = klass.instance_methods & (klass.instance_methods(false) + %i(get update)).uniq
 
     describe klass.to_s do

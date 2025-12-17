@@ -822,7 +822,7 @@ RSpec.describe OrcaApi::MedicalPracticeService, :orca_api_mock do
     end
 
     context "異常系" do
-      it_behaves_like "初回エラー: この労災保険の診察は既に入力済みです。初診料は算定できません。(E40)"
+      include_examples "初回エラー: この労災保険の診察は既に入力済みです。初診料は算定できません。(E40)"
 
       context "Request_Number=2のときにエラーが発生" do
         before do
@@ -1282,13 +1282,13 @@ RSpec.describe OrcaApi::MedicalPracticeService, :orca_api_mock do
       its("ok?") { is_expected.to be false }
     end
 
-    it_behaves_like "初回エラー: この労災保険の診察は既に入力済みです。初診料は算定できません。(E40)"
+    include_examples "初回エラー: この労災保険の診察は既に入力済みです。初診料は算定できません。(E40)"
   end
 
   describe "#create" do
     subject { service.create(params) }
 
-    it_behaves_like "#create,#update"
+    include_examples "#create,#update"
   end
 
   describe "#get" do
@@ -1403,7 +1403,7 @@ RSpec.describe OrcaApi::MedicalPracticeService, :orca_api_mock do
   describe "#update" do
     subject { service.update(params) }
 
-    it_behaves_like "#create,#update"
+    include_examples "#create,#update"
   end
 
   describe "#destroy" do
