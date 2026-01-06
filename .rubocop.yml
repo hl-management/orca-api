@@ -174,3 +174,15 @@ Style/NegatedWhile:
 # SupportedStyles: leading, trailing
 Layout/DotPosition:
   Enabled: false
+
+# Autocorrect: される
+# include_examplesよりit_behaves_likeを推奨する警告
+# 既存のテストパターンで大量に使用、修正するとテストが壊れるため無効化
+RSpec/IncludeExamples:
+  Enabled: false
+
+# Autocorrect: されない
+# ローカル変数をexample内で使用することへの警告
+# 既存のテストパターンで大量に使用されているため無効化
+RSpec/LeakyLocalVariable:
+  Enabled: false

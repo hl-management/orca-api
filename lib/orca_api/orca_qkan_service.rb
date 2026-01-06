@@ -15,6 +15,12 @@ module OrcaApi
   #   @see OrcaQkanService::QkanPatientService#update
   # @!method list_qkan_patient_service
   #   @see OrcaQkanService::QkanPatientService#list
+  # @!method create_nintei_history_qkan_patient_service
+  #   @see OrcaQkanService::QkanPatientService#create_nintei_history
+  # @!method update_nintei_history_qkan_patient_service
+  #   @see OrcaQkanService::QkanPatientService#update_nintei_history
+  # @!method delete_nintei_history_qkan_patient_service
+  #   @see OrcaQkanService::QkanPatientService#delete_nintei_history
   # @!method get_qkan_master_code_list_service
   #   @see OrcaQkanService::QkanMasterCodeListService#get
   # @!method update_qkan_service_use_service
