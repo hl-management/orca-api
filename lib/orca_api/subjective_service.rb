@@ -27,7 +27,7 @@ module OrcaApi
         end
       end
     end
-    using HashSlice unless Hash.instance_methods.include? :slice
+    using HashSlice unless Hash.method_defined?(:slice)
 
     CREATE_PARAMS = [
       "InOut",

@@ -23,6 +23,7 @@ RSpec.describe OrcaApi::OrcaQkanService::QkanProviderListService do # rubocop:di
               <data>
                 <providerlstreq type="record">
                   <Provider_Id type="string"></Provider_Id>
+                  <Haishi_Flag type="string"></Haishi_Flag>
                 </providerlstreq>
               </data>
       XML
