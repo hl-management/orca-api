@@ -38,6 +38,8 @@ module OrcaApi
               <Provider_Id type="string">#{item[:Provider_Id]}</Provider_Id>
               <Service_Code type="string">#{item[:Service_Code]}</Service_Code>
               <Service_Days type="string">#{item[:Service_Days]}</Service_Days>
+              <Start_Time type="string">#{item[:Start_Time]}</Start_Time>
+              <End_Time type="string">#{item[:End_Time]}</End_Time>
               #{"<Kasan_Information type=\"array\">\n#{kasan_information_xml}\n</Kasan_Information>" if kasan_information_xml}
             </Service_Information_child>
           XML

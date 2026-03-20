@@ -23,6 +23,8 @@ module OrcaApi
   #   @see OrcaQkanService::QkanPatientService#delete_nintei_history
   # @!method get_qkan_master_code_list_service
   #   @see OrcaQkanService::QkanMasterCodeListService#get
+  # @!method get_qkan_multi_master_code_list_service
+  #   @see OrcaQkanService::QkanMultiMasterCodeListService#get
   # @!method update_qkan_service_use_service
   #   @see OrcaQkanService::QkanServiceUseService#update
   # @!method list_qkan_meisai_service
@@ -35,6 +37,7 @@ module OrcaApi
       QkanProviderListService
       QkanPatientService
       QkanMasterCodeListService
+      QkanMultiMasterCodeListService
       QkanServiceUseService
       QkanMeisaiService
     ).each do |class_name|
