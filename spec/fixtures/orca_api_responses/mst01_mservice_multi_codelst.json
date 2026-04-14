@@ -1,0 +1,468 @@
+{
+  "mservicemulticodelstres": {
+    "type": "record",
+    "Information_Date": "2026-03-19",
+    "Information_Time": "19:47:32",
+    "Api_Result": "0000",
+    "Api_Result_Message": "処理終了",
+    "Reskey": "MServiceMultiCodeList",
+    "Target_Count": "2",
+    "MServiceCodeArray_Information": [
+      {
+        "type": "record",
+        "Search_Condition_Key": "13",
+        "Target_Count": "28",
+        "MServiceCode_Information": [
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z3001",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "3001",
+            "Service_Name": "緊急時訪問看護加算I１",
+            "Service_Unit": 600
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z3002",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "3002",
+            "Service_Name": "緊急時訪問看護加算I２",
+            "Service_Unit": 325
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z3100",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "3100",
+            "Service_Name": "緊急時訪問看護加算II１",
+            "Service_Unit": 574
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z3200",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "3200",
+            "Service_Name": "緊急時訪問看護加算II２",
+            "Service_Unit": 315
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4000",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4000",
+            "Service_Name": "訪問看護特別管理加算I",
+            "Service_Unit": 500
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4001",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4001",
+            "Service_Name": "訪問看護特別管理加算II",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4002",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4002",
+            "Service_Name": "訪問看護初回加算II",
+            "Service_Unit": 300
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4003",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4003",
+            "Service_Name": "訪問看護退院時共同指導加算",
+            "Service_Unit": 600
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4004",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4004",
+            "Service_Name": "訪問看護介護連携強化加算",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4005",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4005",
+            "Service_Name": "訪問看護体制強化加算II",
+            "Service_Unit": 200
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4010",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4010",
+            "Service_Name": "訪問看護体制強化加算I",
+            "Service_Unit": 550
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4021",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4021",
+            "Service_Name": "訪問看護遠隔死亡診断補助加算",
+            "Service_Unit": 150
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4023",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4023",
+            "Service_Name": "訪問看護初回加算I",
+            "Service_Unit": 350
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4024",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4024",
+            "Service_Name": "訪問看護訪問回数超過等減算",
+            "Service_Unit": -8
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4025",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4025",
+            "Service_Name": "訪問看護専門管理加算１",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4026",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4026",
+            "Service_Name": "訪問看護専門管理加算２",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4100",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4100",
+            "Service_Name": "訪問看護特別指示減算",
+            "Service_Unit": -97
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4111",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4111",
+            "Service_Name": "訪問看護同一建物減算１",
+            "Service_Unit": -10
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z4112",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "4112",
+            "Service_Name": "訪問看護同一建物減算２",
+            "Service_Unit": -15
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z6101",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "6101",
+            "Service_Name": "訪問看護サービス提供体制加算II１",
+            "Service_Unit": 3
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z6102",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "6102",
+            "Service_Name": "訪問看護サービス提供体制加算II２",
+            "Service_Unit": 25
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z6103",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "6103",
+            "Service_Name": "訪問看護サービス提供体制加算I１",
+            "Service_Unit": 6
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z6104",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "6104",
+            "Service_Name": "訪問看護サービス提供体制加算I２",
+            "Service_Unit": 50
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z6192",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "6192",
+            "Service_Name": "訪問看護口腔連携強化加算",
+            "Service_Unit": 50
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z7000",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "7000",
+            "Service_Name": "訪問看護ターミナルケア加算",
+            "Service_Unit": 2500
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z8110",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "8110",
+            "Service_Name": "訪問看護中山間地域等提供加算１",
+            "Service_Unit": 5
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z8111",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "8111",
+            "Service_Name": "訪問看護中山間地域等提供加算２",
+            "Service_Unit": 5
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 11311,
+            "System_Service_Code": "Z8112",
+            "Service_Code_Kind": "13",
+            "Service_Code_Item": "8112",
+            "Service_Name": "訪問看護中山間地域等加算２日割",
+            "Service_Unit": 5
+          }
+        ]
+      },
+      {
+        "type": "record",
+        "Search_Condition_Key": "63",
+        "Target_Count": "21",
+        "MServiceCode_Information": [
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z3001",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "3001",
+            "Service_Name": "予防緊急時訪問看護加算I１",
+            "Service_Unit": 600
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z3002",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "3002",
+            "Service_Name": "予防緊急時訪問看護加算I２",
+            "Service_Unit": 325
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z3100",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "3100",
+            "Service_Name": "予防緊急時訪問看護加算II１",
+            "Service_Unit": 574
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z3200",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "3200",
+            "Service_Name": "予防緊急時訪問看護加算II２",
+            "Service_Unit": 315
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4000",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4000",
+            "Service_Name": "予防訪問看護特別管理加算I",
+            "Service_Unit": 500
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4001",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4001",
+            "Service_Name": "予防訪問看護特別管理加算II",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4002",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4002",
+            "Service_Name": "予防訪問看護初回加算II",
+            "Service_Unit": 300
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4003",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4003",
+            "Service_Name": "予防訪問看護退院時共同指導加算",
+            "Service_Unit": 600
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4005",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4005",
+            "Service_Name": "予防訪問看護体制強化加算",
+            "Service_Unit": 100
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4023",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4023",
+            "Service_Name": "予防訪問看護初回加算I",
+            "Service_Unit": 350
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4024",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4024",
+            "Service_Name": "予防訪問看護訪問回数超過等減算",
+            "Service_Unit": -8
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4025",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4025",
+            "Service_Name": "予防訪問看護専門管理加算１",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4026",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4026",
+            "Service_Name": "予防訪問看護専門管理加算２",
+            "Service_Unit": 250
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4111",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4111",
+            "Service_Name": "予防訪問看護同一建物減算１",
+            "Service_Unit": -10
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z4112",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "4112",
+            "Service_Name": "予防訪問看護同一建物減算２",
+            "Service_Unit": -15
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z6101",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "6101",
+            "Service_Name": "予防訪問看護サービス提供体制加算II",
+            "Service_Unit": 3
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z6102",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "6102",
+            "Service_Name": "予防訪問看護サービス提供体制加算I",
+            "Service_Unit": 6
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z6123",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "6123",
+            "Service_Name": "予防訪問看護１２月超減算１",
+            "Service_Unit": -5
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z6124",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "6124",
+            "Service_Name": "予防訪問看護１２月超減算２",
+            "Service_Unit": -15
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z6192",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "6192",
+            "Service_Name": "予防訪問看護口腔連携強化加算",
+            "Service_Unit": 50
+          },
+          {
+            "type": "record",
+            "System_Service_Kind_Detail": 16311,
+            "System_Service_Code": "Z8110",
+            "Service_Code_Kind": "63",
+            "Service_Code_Item": "8110",
+            "Service_Name": "予防訪問看護中山間地域等提供加算",
+            "Service_Unit": 5
+          }
+        ]
+      }
+    ]
+  }
+}

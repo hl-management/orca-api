@@ -17,6 +17,8 @@ module OrcaApi
                   <Service_Code_Kind type='string'>#{params[:service_code_kind]}</Service_Code_Kind>
                   <Target_Date type='string'>#{params[:target_date]}</Target_Date>
                   <Kasan_Flag type='string'>#{params[:flag]}</Kasan_Flag>
+                  <Service_Code_Item type='string'>#{params[:service_code_item]}</Service_Code_Item>
+                  <Kasan_With_Kihon_Flag type='string'>#{params[:kasan_with_kihon_flag]}</Kasan_With_Kihon_Flag>
                   <Santei_Item_Information type='array'>
                     #{santei_items_xml(params) if params[:santei_item_information]}
                   </Santei_Item_Information>
