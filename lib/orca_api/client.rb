@@ -393,6 +393,12 @@ module OrcaApi # :nodoc:
 
       if body
         req.body = format == 'json' ? body.to_json : body
+        case format
+        when 'json'
+          req.content_type = 'application/json'
+        when 'xml'
+          req.content_type = 'application/xml; charset=UTF-8'
+        end
       end
 
       req
