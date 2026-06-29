@@ -147,8 +147,17 @@ module OrcaApi # :nodoc:
     def call(path, params: {}, body: nil, http_method: :post, format: "json", output_io: nil)
       path = "#{@path_prefix}#{path}"
       http_request = make_request(http_method, path, params, body, format)
-      response = do_call http_request, output_io
-      @after_call&.call(http_request, response, host, status_code)
+      response = nil
+      error = nil
+      begin
+        response = do_call http_request, output_io
+      rescue HttpError => e
+        response = e.response
+        error = e
+        raise
+      ensure
+        @after_call&.call(http_request, response, host, status_code, error)
+      end
 
       response
     end
@@ -429,6 +438,9 @@ module OrcaApi # :nodoc:
       end
     end
 
+    SESSION_INITIALIZING_MESSAGE = "マスター更新中です。しばらくお待ちください。".freeze
+    private_constant :SESSION_INITIALIZING_MESSAGE
+
     def do_request(http, request, output_io)
       http.request(request) do |response|
         @status_code = response&.code.to_s
@@ -444,7 +456,12 @@ module OrcaApi # :nodoc:
             return response.body
           end
         else
-          raise HttpError, response
+          # Byte-level compare (.b) avoids Encoding::CompatibilityError when body comes back as ASCII-8BIT.
+          if response.code == "503" && response.body.to_s.b.include?(SESSION_INITIALIZING_MESSAGE.b)
+            raise SessionInitializingError, response
+          else
+            raise HttpError, response
+          end
         end
       end
     end
