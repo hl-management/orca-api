@@ -305,6 +305,77 @@ RSpec.describe OrcaApi::Client do
         end
       end
 
+      context "503 response with master-update marker" do
+        it "raises SessionInitializingError" do
+          path = "/api01rv2/patientgetv2"
+          stub_request(:post, URI.join(request_url, path, "?#{query}")).
+            to_return(body: "マスター更新中です。しばらくお待ちください。", status: 503)
+
+          expect { orca_api.call(path) }.to raise_error(OrcaApi::SessionInitializingError)
+        end
+
+        it "SessionInitializingError is a subclass of HttpError" do
+          expect(OrcaApi::SessionInitializingError.ancestors).to include(OrcaApi::HttpError)
+        end
+      end
+
+      context "503 response without master-update marker" do
+        it "raises HttpError (not SessionInitializingError)" do
+          path = "/api01rv2/patientgetv2"
+          stub_request(:post, URI.join(request_url, path, "?#{query}")).
+            to_return(body: "Service Unavailable", status: 503)
+
+          expect { orca_api.call(path) }.to raise_error(OrcaApi::HttpError) { |e|
+            expect(e).not_to be_a(OrcaApi::SessionInitializingError)
+          }
+        end
+      end
+
+      context "after_call hook" do
+        let(:captured_error) { [] }
+        let(:options) {
+          {
+            after_call: proc do |_request, _response, _host, _status_code, error|
+              captured_error << error
+            end,
+          }
+        }
+
+        it "receives the error object as the 5th argument on error" do
+          path = "/api01rv2/patientgetv2"
+          stub_request(:post, URI.join(request_url, path, "?#{query}")).
+            to_return(body: "マスター更新中です。しばらくお待ちください。", status: 503)
+
+          expect { orca_api.call(path) }.to raise_error(OrcaApi::SessionInitializingError)
+          expect(captured_error.last).to be_a(OrcaApi::SessionInitializingError)
+        end
+
+        it "receives nil for the error argument on success" do
+          path = "/api01rv2/patientgetv2"
+          stub_request(:post, URI.join(request_url, path, "?#{query}")).to_return(body: "{}", status: 200)
+
+          orca_api.call(path)
+          expect(captured_error.last).to be_nil
+        end
+      end
+
+      context "HttpError#body" do
+        it "is accessible outside the Net::HTTP block" do
+          path = "/api01rv2/patientgetv2"
+          body = "error detail"
+          stub_request(:post, URI.join(request_url, path, "?#{query}")).to_return(body: body, status: 500)
+
+          captured = nil
+          begin
+            orca_api.call(path)
+          rescue OrcaApi::HttpError => e
+            captured = e
+          end
+
+          expect(captured.body).to eq(body)
+        end
+      end
+
       context "リクエストのヘッダとボディが1MiB以上であるため、Net::HTTP#requestでErrno::EPIPEの例外が発生する" do
         it do
           path = "/api01rv2/patientlst1v2"

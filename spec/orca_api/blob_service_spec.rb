@@ -28,7 +28,7 @@ RSpec.describe OrcaApi::BlobService, :orca_api_mock do
     context "異常系" do
       context "404 Not Found" do
         it do
-          error = OrcaApi::HttpError.new(double("Net::HTTPNotFound", message: "Not Found", code: "404"))
+          error = OrcaApi::HttpError.new(double("Net::HTTPNotFound", message: "Not Found", code: "404", body: ""))
           expect(orca_api).to receive(:call).
             with("/blobapi/#{uid}", http_method: :get, format: nil, output_io: output_io).once.and_raise(error)
 
