@@ -27,6 +27,8 @@ module OrcaApi
   #   @see OrcaQkanService::QkanMultiMasterCodeListService#get
   # @!method update_qkan_service_use_service
   #   @see OrcaQkanService::QkanServiceUseService#update
+  # @!method get_qkan_service_use_service
+  #   @see OrcaQkanService::QkanServiceUseService#get
   # @!method list_qkan_meisai_service
   #   @see OrcaQkanService::QkanMeisaiService#list
 

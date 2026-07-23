@@ -10,6 +10,22 @@ module OrcaApi
         )
       end
 
+      # 予定・実績情報取得API
+      def get(patient_id, service_ym)
+        orca_api.call(
+          "/service01/serviceinf",
+          format: 'xml',
+          body: <<-XML
+              <data>
+                <serviceinfreq type="record">
+                  <Patient_Id type="string">#{patient_id}</Patient_Id>
+                  <Service_YM type="string">#{service_ym}</Service_YM>
+                </serviceinfreq>
+              </data>
+          XML
+        )
+      end
+
       private
 
       def build_xml_request(params)
