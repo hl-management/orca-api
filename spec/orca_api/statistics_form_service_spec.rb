@@ -119,6 +119,68 @@ RSpec.describe OrcaApi::StatisticsFormService, :orca_api_mock do
     end
   end
 
+  describe "#create_report" do
+    it "calls the API correctly" do
+      expect_orca_api_call(
+        [
+          {
+            path: "/orca51/statisticsformv3",
+            body: {
+              statistics_formv3req: {
+                "Request_Number" => "01",
+                "Karte_Uid" => orca_api.karte_uid,
+                "Statistics_Mode" => "Monthly",
+                "Statistics_Processing_List_Information" => [
+                  {
+                    "Statistics_Program_Name" => "A00000M500",
+                    "Statistics_Parameter_Information" => [
+                      {
+                        "Statistics_Parm_No" => "01",
+                        "Statistics_Parm_Class" => "YM",
+                        "Statistics_Parm_Label" => nil,
+                        "Statistics_Parm_Required_Item" => nil,
+                        "Statistics_Parm_Value" => "2026-05"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            response: {
+              "statistics_formv3res" => {
+                "Api_Result" => "000",
+                "Api_Result_Message" => "情報取得終了",
+                "Statistics_Mode" => "Monthly",
+                "Statistics_Processing_List_Information" => [
+                  {
+                    "Statistics_Program_No" => "001",
+                    "Statistics_Program_Name" => "A00000M500",
+                  }
+                ]
+              }
+            }.to_json
+          }
+        ],
+        binding
+      )
+
+      result = service.create_report(
+        program_name: "A00000M500",
+        parameters: [
+          { "Statistics_Parm_No" => "01", "Statistics_Parm_Class" => "YM", "Statistics_Parm_Value" => "2026-05" }
+        ],
+        mode: :monthly
+      )
+      expect(result.ok?).to be true
+    end
+
+    it "raises for an unsupported mode" do
+      expect {
+        service.create_report(program_name: "A00000M500", parameters: [], mode: :yearly)
+      }.to raise_error ArgumentError
+    end
+  end
+
   describe "#created" do
     let(:create_result) do
       OrcaApi::StatisticsFormService::ListResult.new(

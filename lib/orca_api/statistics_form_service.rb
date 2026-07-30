@@ -161,6 +161,34 @@ module OrcaApi
       )
     end
 
+    # Generic processing execution to run an arbitrary statistics program.
+    #
+    # @param program_name [String] statistics program name
+    # @param parameters [Array<Hash>] each with Statistics_Parm_No/Class/Value
+    #   (Statistics_Parm_Label/Required_Item optional)
+    # @param mode [Symbol] :daily or :monthly
+    # @return [CreateResult]
+    def create_report(program_name:, parameters:, mode:)
+      raise ArgumentError unless MODES.key? mode
+
+      CreateResult.new(
+        orca_api.call(
+          "/orca51/statisticsformv3",
+          body: {
+            statistics_formv3req: {
+              "Request_Number" => "01",
+              "Karte_Uid" => orca_api.karte_uid,
+              "Statistics_Mode" => MODES[mode],
+              "Statistics_Processing_List_Information" => [{
+                "Statistics_Program_Name" => program_name,
+                "Statistics_Parameter_Information" => extract_statistics_parameter_information(parameters)
+              }]
+            }
+          }
+        )
+      )
+    end
+
     # @param create_result [CreateResult]
     # @return [CreatedResult] 処理確認のレスポンスクラス
     def created(create_result)
