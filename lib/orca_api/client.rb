@@ -155,6 +155,12 @@ module OrcaApi # :nodoc:
         response = e.response
         error = e
         raise
+      rescue StandardError => e
+        # Connection-level failures (e.g. Errno::ECONNREFUSED, timeouts) are not
+        # HttpError; still hand the error to after_call so it logs the failure
+        # instead of treating the nil response as a normal one.
+        error = e
+        raise
       ensure
         @after_call&.call(http_request, response, host, status_code, error)
       end
@@ -227,6 +233,9 @@ module OrcaApi # :nodoc:
     # @!method new_statistics_form_service
     # @return [StatisticsFormService] StatisticsFormServiceインスタンス
 
+    # @!method new_statistics_data_service
+    # @return [StatisticsDataService] StatisticsDataServiceインスタンス
+
     # @!method new_interruption_form_service
     # @return [InterruptionService] InterruptionServiceインスタンス
 
@@ -277,6 +286,7 @@ module OrcaApi # :nodoc:
       ReceiptDataService
       ReceiptService
       RehabilitationCommentService
+      StatisticsDataService
       StatisticsFormService
       SubjectiveService
       UserService
